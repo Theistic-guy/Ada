@@ -1,4 +1,4 @@
-$header-background-color: black;
+$header-background-color: #FFFDD0;
 // $header-background-color: rgba(28, 34, 36, 0.75);
 // $header-background-color: rgba(98, 101, 102, 0.99);
 
@@ -23,7 +23,7 @@ header {
     button {
         display: flex;
         align-items: center;
-        padding: 0px,30px;
+        padding: 30px,30px;
         text-decoration: none;
         color: white;
         font-size: 28px;
@@ -46,17 +46,17 @@ header {
 
         span {
             &:first-child {
-                padding-right: 8px;
+                padding: 8px,;
 
                 &[data-items]::after {
                     position: relative;
                     content: attr(data-items);
                     font-size: 12px;
-                    background-color: red;
+                    background-color: black;
                     padding: 2px 4px;
                     border-radius: 50%;
-                    top: -8px;
-                    right: -4px;
+                    top: -17px;
+                    right: 0px;
                 }
             }
         }
