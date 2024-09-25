@@ -1,4 +1,8 @@
+// App.js
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './navbar';
+import Cart from './cart';
 import './index.css';
 
 function App() {
@@ -46,25 +50,36 @@ function App() {
   };
 
   return (
-    <div className='container'>
-      {products.map(product => (
-        <div key={product.id} className='card'>
-          <img src={product.thumbnail} alt='product' />
-          <p>${product.price}</p>
-          {cart[product.id] ? (
-            <div className='quantity-control'>
-              <button onClick={() => decrement(product.id)}>-</button>
-              <span>{cart[product.id]}</span>
-              <button onClick={() => increment(product.id)}>+</button>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className='container'>
+              {products.map(product => (
+                <div key={product.id} className='card'>
+                  <img src={product.thumbnail} alt='product' />
+                  <p>${product.price}</p>
+                  {cart[product.id] ? (
+                    <div className='quantity-control'>
+                      <button onClick={() => decrement(product.id)}>-</button>
+                      <span>{cart[product.id]}</span>
+                      <button onClick={() => increment(product.id)}>+</button>
+                    </div>
+                  ) : (
+                    <button onClick={() => toggleCart(product.id)}>
+                      Add to Cart
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>
-          ) : (
-            <button onClick={() => toggleCart(product.id)}>
-              Add to Cart
-            </button>
-          )}
-        </div>
-      ))}
-    </div>
+          }
+        />
+        <Route path="/cart" element={<Cart cart={cart} products={products} />} />
+      </Routes>
+    </Router>
   );
 }
 
