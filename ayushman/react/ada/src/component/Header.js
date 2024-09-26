@@ -1,9 +1,40 @@
+import { useState,useEffect,useRef } from "react"
+
+
 const Header=()=>{
+    
+    const [open, setOpen] = useState(false);
+    let menuRef = useRef(null);
+
+
+
+    useEffect(() => {
+        let handler = (e)=>{
+          if(!menuRef.current.contains(e.target)){
+            setOpen(false);
+            console.log(menuRef.current);
+          }      
+        };
+    
+        document.addEventListener("mousedown", handler);
+        
+    
+        return() =>{
+          document.removeEventListener("mousedown", handler);
+        }
+    
+      });
+
+
+
+    
+    
+    
     return(
         <header>
             <div className="nav-brand">
                 <a to="/">
-                    <span><img src="logo.png" height={100} width={100}/></span>
+                    <span><img src="ADALogo.png" height={100} width={100}/></span>
                     {/* <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="30"
                         height="30" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" fill="none" strokeLinecap="round"
                         strokeLinejoin="round">
@@ -52,11 +83,34 @@ const Header=()=>{
                     </svg></span>   
                 </button>
                 <button>
-                    <span><img src="settings.png" height={30} width={30}/></span>
+                    <span onClick={()=>{setOpen(!open)}}>
+                        <img src="settings.png" height={30} width={30}/>
+                        <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
+                            <h3>The Kiet<br/><span>Website Designer</span></h3>
+                            <ul>
+                                <DropdownItem img = {"user.png"} text = {"My Profile"}/>
+                                <DropdownItem img = {"edit.png"} text = {"Edit Profile"}/>
+                                <DropdownItem img = {"envelop.png"} text = {"Inbox"}/>
+                                <DropdownItem img = {"settings.png"} text = {"Settings"}/>
+                                <DropdownItem img = {"question.png"} text = {"Helps"}/>
+                                <DropdownItem img = {"log-out.png"} text = {"Logout"}/>
+                            </ul>
+                        </div>
+                    </span>
                 </button>
             </div>
         </header >
     )
 }
+
+
+function DropdownItem(props){
+    return(
+      <li className = 'dropdownItem'>
+        <img src={props.img}/>
+        <a> {props.text} </a>
+      </li>
+    );
+  }
 
 export default Header

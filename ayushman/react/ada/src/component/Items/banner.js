@@ -11,7 +11,7 @@ const Banner=()=>{
     
     return(
         <div className={"item-banner"} data-aos="zoom-in">
-            <img className={"img-fluid"} src="banner.png"/>
+            <img className={"img-fluid"} src="clothing.png"/>
         </div>
     )
 }

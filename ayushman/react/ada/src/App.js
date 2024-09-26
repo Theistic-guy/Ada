@@ -9,12 +9,12 @@ import "aos/dist/aos.css";
 
 function App() {
   return (
-    <div>
+    <div className='MainDiv'>
         <Header></Header>
         <Ad></Ad>
-        {/* <SamsungAdv></SamsungAdv> */}
         <Data></Data>
         <Banner></Banner>
+        <SamsungAdv></SamsungAdv>
     </div>
   );
 }

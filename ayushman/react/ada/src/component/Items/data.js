@@ -1,10 +1,12 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import Card from "./card"
+import Loader from "../UI/loader"
 
 const Data=()=>{
 
     const [items,setItems]=useState([]);
+    const [loader,setLoader]=useState(true);
 
     useEffect(()=>{
          async function fetchItem(){
@@ -18,15 +20,20 @@ const Data=()=>{
                     }
                 })
                 setItems(transferData)
+                setLoader(false)
             }
             catch(error){
+                setLoader(true)
                 alert('Error')
+            }
+            finally{
+                setLoader(false)
             }
          }
          fetchItem()},[])
 
          return(
-            <div>
+            <>
                 <div className={"product-list"}>
                     <div className={"product-list--wrapper"}>
                         {
@@ -38,7 +45,8 @@ const Data=()=>{
                         }
                     </div>
                 </div>
-            </div>
+            {loader && <Loader></Loader>}
+            </>
         )
 }
 
