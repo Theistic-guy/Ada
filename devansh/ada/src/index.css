@@ -5,49 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:rgb(	230 , 245 , 220 );
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.container{
-  display: flex;
-  flex-wrap: wrap;
-}
-.card{
-  background-color: aliceblue;
-  cursor: pointer;
-  border: 2px solid black;
-  border-radius: 25px;
-  padding: 10px;
-  margin: 10px;
-  width: 310px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-}
-.card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-}
-.quantity-control {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  justify-content: center; /* Center buttons horizontally */
-}
-
-.quantity-control button {
-  margin: 0 10px; /* Add horizontal spacing */
-  box-sizing: border-box;
-}
-button{
-  background-color: red;
-  color: black;
-  cursor: pointer;
-  height: auto;
-  font-size: large;
-}
-
-
