@@ -1,14 +1,28 @@
 .signup-container {
     position: relative; /* Position relative for the pseudo-element */
-    padding: 100px; /* Increased padding */
+    padding: 50px; /* Increased padding */
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 500px; /* Increased width */
-    margin: 100px auto; /* Center with top margin */
+    margin-top: 5px;
+    margin: 50px auto; /* Center with top margin */
     text-align: center;
-    background: #ffffff; /* White background for the container */
+    /* background: #ffffff; White background for the container */
+    backdrop-filter: blur(8px);
 }
-
+.sign-back{
+    content: '';
+    position: absolute; /* Position absolutely within the container */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/public/Untitled\ design.png'); /* Adjusted URL */
+    background-repeat: no-repeat;
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    z-index: 0;
+}
 .signup-container::before {
     content: '';
     position: absolute; /* Position absolutely within the container */
@@ -16,7 +30,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/public/Screenshot 2024-09-26 140448.png'); /* Adjusted URL */
+    /* background-image: url('/public/Screenshot 2024-09-26 140448.png'); Adjusted URL */
     background-repeat: no-repeat;
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
@@ -75,7 +89,7 @@ p {
 }
 
 a {
-    color: #6a11cb; /* Link color */
+    color: white; /* Link color */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s; /* Transition for link hover */
 }

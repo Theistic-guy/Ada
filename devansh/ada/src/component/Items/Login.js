@@ -11,14 +11,16 @@ const Login = () => {
     };
 
     return (
+        <div className='login-back'>
         <div className="login-container">
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <input type="email"placeholder="Email"value={email}onChange={(e) => setEmail(e.target.value)}required/>
-                <input type="password"placeholder="Password"value={password}onChange={(e) => setPassword(e.target.value)}required/>
+                <input type="text"placeholder="User Name" name='userName' onChange={(e) => setEmail(e.target.value)}required/>
+                <input type="password"placeholder="Password" name='password' onChange={(e) => setPassword(e.target.value)}required/>
                 <button type="submit" className='login'>Login</button>
             </form>
             <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+        </div>
         </div>
     );
 };

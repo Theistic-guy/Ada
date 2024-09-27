@@ -14,15 +14,20 @@ const Signup = () => {
     };
 
     return (
-        <div className="signup-container">
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text"placeholder="Full Name"value={name}onChange={(e) => setName(e.target.value)}required/>
-                <input type="email"placeholder="Email"value={email}onChange={(e) => setEmail(e.target.value)}required/>
-                <input type="password"placeholder="Password"value={password}onChange={(e) => setPassword(e.target.value)}required/>
-                <button type="submit" className='sign'>Sign Up</button>
-            </form>
-            <p>Already have an account? <a href="/login"><b>Log In</b></a></p>
+        <div className='sign-back'>
+            <div className="signup-container">
+                <h1>Sign Up</h1>
+                    <form onSubmit={handleSubmit}>
+                    <input type="text"placeholder="Full Name"value={name} name='fullname' onChange={(e) => setName(e.target.value)}required/>
+                    <input type="email"placeholder="Email"value={email} name='email' onChange={(e) => setEmail(e.target.value)}required/>
+                    <input type='text' placeholder='User Name' name='User Name'required></input>
+                    <input type="password"placeholder="Password"value={password} name='password' onChange={(e) => setPassword(e.target.value)}required/>
+                    <input type='text' placeholder='Address' name='Address' required></input>
+                    <input type='number' placeholder='Phone Number' name='phone' required></input>
+                        <button type="submit" className='sign'>Sign Up</button>
+                    </form>
+                <p>Already have an account? <a href="/login"><b>Log In</b></a></p>
+            </div>
         </div>
     );
 };
