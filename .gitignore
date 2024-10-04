@@ -40,4 +40,4 @@ jspm_packages/
 package-lock.json
 
 # big csv files 
-aryaman/csv/categories and products/AllIdentifiedProductsUK.csv
+aryaman/csv/categories_and_products/AllIdentifiedProductsUK.csv
