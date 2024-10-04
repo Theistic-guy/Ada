@@ -1,0 +1,2 @@
+'name','category_id','depth','string_path','category_id_Path','root_column','main_category','sub_category_1','sub_category_2','sub_category_3','sub_category_4','sub_category_5','sub_category_6','sub_category_7','sub_category_8','root_id','main_category_id','sub_category_1_id','sub_category_2_id','sub_category_3_id','sub_category_4_id','sub_category_5_id','sub_category_6_id','sub_category_7_id','sub_category_8_id'
+'object handle','name','category_id'
