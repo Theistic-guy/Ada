@@ -1,84 +1,32 @@
-// App.js
-import React, { useEffect, useState } from 'react';
+// import logo from './logo.svg';
+// import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './navbar';
-import Cart from './cart';
-import './index.css';
+import Header from './component/Header';
+import Data from './component/Items/data';
+import Banner from './component/Items/banner';
+import Ad from './component/Items/advert';
+import Login from './component/Items/Login';
+import Signup from './component/Items/Signup';
+import "aos/dist/aos.css";
+import './index.css'
 
 function App() {
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState({});
-
-  useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then(response => response.json())
-      .then(data => setProducts(data.products));
-  }, []);
-
-  const toggleCart = (id) => {
-    if (cart[id]) {
-      const newCart = { ...cart };
-      delete newCart[id];
-      setCart(newCart);
-    } else {
-      setCart((prevCart) => ({
-        ...prevCart,
-        [id]: 1,
-      }));
-    }
-  };
-
-  const increment = (id) => {
-    setCart((prevCart) => ({
-      ...prevCart,
-      [id]: prevCart[id] + 1,
-    }));
-  };
-
-  const decrement = (id) => {
-    setCart((prevCart) => {
-      if (prevCart[id] === 1) {
-        const newCart = { ...prevCart };
-        delete newCart[id];
-        return newCart;
-      }
-      return {
-        ...prevCart,
-        [id]: prevCart[id] - 1,
-      };
-    });
-  };
-
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className='container'>
-              {products.map(product => (
-                <div key={product.id} className='card'>
-                  <img src={product.thumbnail} alt='product' />
-                  <p>${product.price}</p>
-                  {cart[product.id] ? (
-                    <div className='quantity-control'>
-                      <button onClick={() => decrement(product.id)}>-</button>
-                      <span>{cart[product.id]}</span>
-                      <button onClick={() => increment(product.id)}>+</button>
-                    </div>
-                  ) : (
-                    <button onClick={() => toggleCart(product.id)}>
-                      Add to Cart
-                    </button>
-                  )}
-                </div>
-              ))}
-            </div>
-          }
-        />
-        <Route path="/cart" element={<Cart cart={cart} products={products} />} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={
+            <>
+              <Header />
+              <Ad/>
+              <Data />
+              <Banner />
+            </>
+          } />
+        </Routes>
+      </div>
     </Router>
   );
 }

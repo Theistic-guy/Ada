@@ -1,0 +1,74 @@
+{
+    "items": [
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 340,
+        "price": 450,
+        "thumbnail": "https://i5.walmartimages.com/seo/Verizon-iPhone-16-Pro-128GB-White-Titanium-Apple-Intelligence_91619135-df95-4548-baed-4092bee370d7.2fa379ee048fff0300712e5a0648d18c.jpeg",
+        "title": "Iphone 16 pro"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 27,
+        "price": 30,
+        "thumbnail": "https://static1.anpoimages.com/wordpress/wp-content/uploads/2024/01/galaxy-s24-ultra-titanium-violet.png",
+        "title": "Samsung Galaxy S24 Ultra"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 8498,
+        "price": 13999,
+        "thumbnail": "https://m.media-amazon.com/images/I/41hVmODWJQL._SX300_SY300_QL70_FMwebp_.jpg",
+        "title": "Redmi 13C (Starfrost White, 6GB RAM, 128GB Storage)"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 109998,
+        "price": 120000,
+        "thumbnail": "https://m.media-amazon.com/images/I/317z+DsWdIL._SY300_SX300_.jpg",
+        "title": "Samsung Galaxy Z Flip6 5G AI Smartphone (Silver Shadow, 12GB RAM, 256GB Storage)"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 54139,
+        "price": 99999,
+        "thumbnail": "https://m.media-amazon.com/images/I/41mwwj9GOoL.jpg",
+        "title": "Oppo Find N3 Flip (Cream Gold, 256 GB) (12 GB RAM)"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 27,
+        "price": 30,
+        "thumbnail": "https://m.media-amazon.com/images/I/71o8VehMHXL._SX679_.jpg",
+        "title": "OnePlus 12 (Silky Black, 16GB RAM, 512GB Storage)"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 59999,
+        "price": 75999,
+        "thumbnail": "https://m.media-amazon.com/images/I/41O+9LbIOUL._SY300_SX300_.jpg",
+        "title": "Xiaomi 14 (Jade Green, 12GB RAM, 512GB Storage) | 50MP Leica Professional Optics | 120 Hz 1.5K LTPO AMOLED | SD 8 Gen 3 Hyper OS"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 149999,
+        "price": 159999,
+        "thumbnail": "https://m.media-amazon.com/images/I/81B4UqMfjeL._SX679_.jpg",
+        "title": "Oneplus Open (Apex Edition,16Gb Ram, 1Tb Storage),Green"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 62999,
+        "price": 74999,
+        "thumbnail": "https://m.media-amazon.com/images/I/31SyVttwz7L._SX300_SY300_QL70_FMwebp_.jpg",
+        "title": "Samsung Galaxy S24 5G AI Smartphone (Marble Gray, 8GB, 128GB Storage)"
+      },
+      {
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  -",
+        "discountedPrice": 65900,
+        "price": 74900,
+        "thumbnail": "https://m.media-amazon.com/images/I/31KxpX7Xk7L._SY445_SX342_QL70_FMwebp_.jpg",
+        "title": "Apple iPhone 15 (128 GB) - Black"
+      }
+    ]
+  }
