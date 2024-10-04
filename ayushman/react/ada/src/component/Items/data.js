@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import Card from "./card"
 import Loader from "../UI/loader"
+import Link from "./catagoryLinks"
 
 const Data=()=>{
 
@@ -34,17 +35,20 @@ const Data=()=>{
 
          return(
             <>
-                <div className={"product-list"}>
-                    <div className={"product-list--wrapper"}>
-                        {
-                            items.map(item =>{
-                                return(
-                                    <Card key={item.id} data={item}></Card>
-                                )
-                            })
-                        }
+                <>
+                    <Link catagory={"Electronics"}></Link>
+                    <div className={"product-list"}>
+                        <div className={"product-list--wrapper"}>
+                            {
+                                items.map(item =>{
+                                    return(
+                                        <Card key={item.id} data={item}></Card>
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
-                </div>
+                </>
             {loader && <Loader></Loader>}
             </>
         )

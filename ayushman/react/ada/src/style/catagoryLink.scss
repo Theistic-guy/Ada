@@ -1,0 +1,27 @@
+.LinkBorder{
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid ;
+    width: 97.5%;
+    margin-left: 5px 5px 0px 5px;
+    padding: 15px 15px 15px 15px;
+    box-shadow: 15px 20px 20px 0px #CDC1FF;
+    background-color: #E5D9F2;
+}
+
+.LinkHead{
+    display: flex;
+    align-items: left;
+    margin-left: 30px;
+}
+
+.LinkButton{
+    margin-top: 18px;
+    background-color: unset;
+    border: unset;
+    display: flex;
+    align-self: right;
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+}
