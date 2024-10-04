@@ -1,10 +1,13 @@
 import { useState,useEffect,useRef } from "react"
+import { Link } from "react-router-dom";
+// import Login from "./LoginPages/Login";
+// import Link from "react-router-dom"
 
 
 const Header=()=>{
     
     const [open, setOpen] = useState(false);
-    let menuRef = useRef(null);
+    let menuRef = useRef();
 
 
 
@@ -33,7 +36,7 @@ const Header=()=>{
     return(
         <header>
             <div className="nav-brand">
-                <a to="/">
+                <Link to="/">
                     <span><img src="ADALogo.png" height={100} width={100}/></span>
                     {/* <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="30"
                         height="30" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" fill="none" strokeLinecap="round"
@@ -44,7 +47,7 @@ const Header=()=>{
                         <path d="M17 17h-11v-14h-2" />
                         <path d="M6 5l14 1l-1 7h-13" />
                     </svg> */}
-                </a>
+                </Link>
             </div>
             <div className="searchBox-container">
                 <form>
@@ -69,9 +72,11 @@ const Header=()=>{
                 </svg>
             </div>
             <div className="cart-container">
-                <button>
-                    <span><img src="user.png" height={30} width={30}/></span>
-                </button>
+                <Link to={"/About"}>
+                    <button>
+                        <span><img src="group.png" height={40} width={40}/></span>
+                    </button>
+                </Link>
                 <button>
                     <span data-items={0}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart-plus" width="30" height="30" viewBox="0 0 24 24" strokeWidth="1.5" stroke="black" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -83,14 +88,15 @@ const Header=()=>{
                     </svg></span>   
                 </button>
                 <button>
-                    <span onClick={()=>{setOpen(!open)}}>
+                    <span onClick={()=>{setOpen(!open)}} ref={menuRef}>
                         <img src="settings.png" height={30} width={30}/>
                         <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
-                            <h3>The Kiet<br/><span>Website Designer</span></h3>
                             <ul>
-                                <DropdownItem img = {"user.png"} text = {"My Profile"}/>
+                                <Link to={"/Profile"}>
+                                    <DropdownItem img = {"user.png"} text = {"My Profile"}/>
+                                </Link>
                                 <DropdownItem img = {"edit.png"} text = {"Edit Profile"}/>
-                                <DropdownItem img = {"envelop.png"} text = {"Inbox"}/>
+                                <DropdownItem img = {"envelope.png"} text = {"Inbox"}/>
                                 <DropdownItem img = {"settings.png"} text = {"Settings"}/>
                                 <DropdownItem img = {"question.png"} text = {"Helps"}/>
                                 <DropdownItem img = {"log-out.png"} text = {"Logout"}/>
@@ -107,7 +113,7 @@ const Header=()=>{
 function DropdownItem(props){
     return(
       <li className = 'dropdownItem'>
-        <img src={props.img}/>
+        <img src={props.img} />
         <a> {props.text} </a>
       </li>
     );

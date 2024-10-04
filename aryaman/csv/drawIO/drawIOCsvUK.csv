@@ -1,0 +1,129 @@
+ID,Parent,label
+11151,10,Wearable Technology
+22947,21,Light Bulbs
+14072,13,"Heating, Cooling & Air Quality"
+15611,14,Lab & Scientific Products
+22943,21,Hardware
+11332,11306,USB Gadgets
+3808,6,Sports & Outdoors
+3945,3894,String Instruments
+18113,17978,Karaoke Equipment
+19039,19013,Computer Printers
+21071,21001,Snowboards
+21033,21021,Downhill Ski Boots
+19,0,Pet Supplies
+19188,19133,"Plants, Seeds & Bulbs"
+14283,14071,Living Room Furniture
+6072,5947,Skin Care
+24170,22,Hobbies
+11416,11400,Computer Memory
+15680,15597,3D Printers
+15596,14,Abrasive & Finishing Products
+15617,14,Professional Medical Supplies
+15599,14,Cutting Tools
+15612,14,Material Handling Products
+15614,14,Packaging & Shipping Supplies
+14798,14078,Home Brewing & Wine Making
+11138,10,eBook Readers & Accessories
+22946,21,Kitchen & Bath Fixtures
+11316,11306,Cables & Accessories
+21023,20999,Ski Clothing
+14491,14073,Window Treatments
+14278,14071,Home Bar Furniture
+14154,14069,Mattress Pads & Toppers
+14144,14069,Bedding Accessories
+24167,22,Dolls & Accessories
+11405,11399,Computer Cases
+11409,11399,KVM Switches
+19013,18600,Printers & Accessories
+19056,19039,Photo Printers
+22941,21,Building Supplies
+22953,21,Safety & Security
+11314,11137,Tablet Accessories
+11313,11137,Laptop Accessories
+11815,11151,Smartwatches
+17977,16,Drums & Percussion
+5308,3787,Outdoor Cooking
+22963,22955,Decking & Fencing
+19142,18,"Pools, Hot Tubs & Supplies"
+14279,14071,Home Office Furniture
+14273,14071,Bathroom Furniture
+24164,22,Baby & Toddler Toys
+24174,22,Learning & Education Toys
+11407,11399,External Sound Cards
+11422,11400,Internal TV Tuner & Video Capture Cards
+19014,18600,Scanners & Accessories
+21814,21110,Darts & Dartboards
+8227,8170,Table Tennis
+8193,8165,Bowling
+21817,21110,Trampolines & Accessories
+15605,14,"Hydraulics, Pneumatics & Plumbing"
+14794,14078,Bakeware
+11292,11167,Camcorders
+11157,11135,Camera & Photo Accessories
+11143,10,"Household Batteries, Chargers & Accessories"
+11333,11306,USB Hubs
+11317,11306,Computer Audio & Video Accessories
+11326,11306,Computer Memory Card Accessories
+21068,21001,Snowboard Boots
+21067,21001,Snowboard Bindings
+21035,21021,Downhill Skis
+21000,20406,Snow Sledding Equipment
+14484,14073,"Rugs, Pads & Protectors"
+14480,14073,Mirrors
+14474,14073,Clocks
+14485,14073,Slipcovers
+14489,14073,Vases
+14274,14071,Bedroom Furniture
+11406,11399,External Optical Drives
+11421,11400,Internal Optical Drives
+11312,11137,Data Storage
+14795,14078,"Coffee, Tea & Espresso"
+11161,11135,Digital Cameras
+11251,11162,Film Cameras
+11155,11135,"Binoculars, Telescopes & Optics"
+11140,10,"GPS, Finders & Accessories"
+20,0,Sports & Outdoors
+19134,18,Outdoor Cooking
+10,0,Electronics
+21,0,Tools & Home Improvement
+13,0,Home & Kitchen
+14,0,Industrial & Scientific
+11306,11137,Computer Accessories & Peripherals
+6,0,Books
+3894,3823,Musical Instruments
+17978,16,"Electronic Music, DJ & Karaoke"
+21001,20406,Snowboarding Equipment
+21021,20999,Downhill Ski Equipment
+0,,root
+19133,18,Gardening & Lawn Care
+14071,13,Furniture
+5947,3791,Grooming & Style
+22,0,Toys & Games
+11400,11307,Computer Internal Components
+15597,14,Additive Manufacturing Products
+14078,13,Kitchen & Dining
+20999,20406,Snow Skiing Equipment
+14073,13,Home Décor Products
+14069,13,Bedding
+11399,11307,Computer External Components
+18600,17,Office Electronics Products
+11137,10,Computers & Accessories
+16,0,Musical Instruments
+3787,6,"Cookbooks, Food & Wine"
+22955,22941,Building Materials
+18,0,"Patio, Lawn & Garden"
+21110,20343,Leisure Sports & Games Equipment
+8170,3808,Racket Sports
+8165,3808,Individual Sports
+11167,11135,Video Equipment
+11135,10,Camera & Photo
+20406,20342,Winter Sports Equipment
+11162,11135,Film Photography
+3823,3779,Music
+3791,6,"Health, Fitness & Dieting"
+11307,11137,Computer Components
+17,0,Office Products
+20343,20,Sports & Fitness
+20342,20,Outdoor Recreation
+3779,6,Arts & Photography

@@ -38,3 +38,6 @@ jspm_packages/
 # Other
 *.tgz
 package-lock.json
+
+# big csv files 
+aryaman/csv/categories_and_products/AllIdentifiedProductsUK.csv
