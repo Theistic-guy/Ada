@@ -15,8 +15,8 @@ const HomePage=()=>{
             <Ad></Ad>
             {/* <Link catagory={"Electronics"}></Link> */}
             <Data></Data>
-            {/* <Link catagory={"Sports"}></Link> */}
-            {/* <Link catagory={"Kitchen"}></Link> */}
+            <Link catagory={"Sports"}></Link>
+            <Link catagory={"Kitchen"}></Link>
             <Banner></Banner>
             <SamsungAdv></SamsungAdv>
         </div>
