@@ -1,0 +1,150 @@
+header{
+    margin: 0;
+    padding: 0 0px;
+    background-color: #E5D9F2;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 15px 10px -15px #1111112b;
+    position: sticky;
+    z-index: 1024;
+    top: 0;
+}
+.nav-brand,
+.cart-container {
+    a{
+        display: flex;
+        align-items: left;
+    }
+    button {
+        display: flex;
+        align-items: center;
+        padding: 30px,30px;
+        text-decoration: none;
+        color: white;
+        font-size: 28px;
+    }
+
+}
+.cart-container {
+    display: flex;
+
+    a, button {
+        margin: auto;
+        background-color: unset;
+        border: unset;
+        cursor: pointer;
+        font-size: 16px;
+
+        span {
+            &:first-child {
+                padding: 8px,;
+
+                &[data-items]::after {
+                    position: relative;
+                    content: attr(data-items);
+                    font-size: 12px;
+                    background-color: black;
+                    padding: 2px 4px;
+                    border-radius: 50%;
+                    top: -17px;
+                    right: 0px;
+                }
+            }
+        }
+    }
+}
+.searchBox-container {
+    align-self: center;
+    flex-grow: 1;
+
+    form {
+        position: relative;
+        display: flex;
+        max-width: 100%;
+        margin: 0 80px;
+        justify-content: center;
+
+        input {
+            flex-grow: 1;
+            padding: 8px 56px 8px 16px;
+            border: transparent;
+            border-radius: 2px;
+            width: 100%;
+            font-size: 15px;
+            color: rgba(128, 128, 128, 0.897);
+            max-width: 500px;
+        }
+
+        button[type="submit"] {
+            background-color: #A594F9;
+            position: relative;
+            right: 36px;
+            padding-right: 8px !important;
+            padding-left: 8px !important;
+            border: unset;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            cursor: pointer;
+        }
+    }
+    form + svg {
+        display: none;
+    }
+}
+@media screen and (max-width:768px) {
+
+    .nav-brand,
+    .cart-container {
+        a, button {
+            font-size: 22px;
+            padding: 14px 16px;
+        }
+    }
+
+    .cart-container {
+        a, button {
+            font-size: 16px;
+        }
+    }
+
+    .searchBox-container {
+        form {
+            margin: 0 0px;
+        }
+    }
+}
+@media screen and (max-width:450px) {
+    .cart-container {
+        a span:first-child,
+        button span:first-child {
+            display: none;
+        }
+    }
+    .searchBox-container {
+        form {
+            display: none;
+        }
+        form + svg {
+            margin-left: auto;
+            display: block;
+        }
+    }
+}
+.dropdown-menu {
+    background-color: white; /* Change as needed */
+    border: 1px solid #ccc; /* Optional border */
+    border-radius: 4px; /* Optional rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    padding: 10px; /* Space inside dropdown */
+}
+
+.dropdownItem {
+    display: flex;
+    align-items: center;
+    padding: 5px; /* Space inside items */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.dropdownItem:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
