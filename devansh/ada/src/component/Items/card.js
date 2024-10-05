@@ -1,27 +1,29 @@
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-import { useState } from "react"
-import "./index.css"
+// src/components/Card.js
+import { useState } from "react";
+import { useCart } from './CartContext'; // Import the useCart hook
+import "./index.css";
 
+const Card = ({ data }) => {
+    const { addToCart } = useCart(); // Use the context
+    const [counter, setCounter] = useState(0);
 
+    const IncreaseCounter = () => {
+        setCounter(counter + 1);
+    };
 
-const Card=({data})=>{
+    const DecreaseCounter = () => {
+        if (counter === 0) return;
+        setCounter(counter - 1);
+    };
 
-    const [counter,setCounter]=useState(0);
+    const handleAddToCart = () => {
+        addToCart(data);
+        setCounter(1); // Set counter to 1 after adding to cart
+    };
 
-    const IncreaseCounter=()=>{
-        setCounter(counter+1);
-    }
-    const DecreaseCounter=()=>{
-        if(counter===0){
-            return;
-        }
-        setCounter(counter-1);
-    }
-
-    return(
-            <div className={"item-card"}>
-            <img className={"img-fluid"} src={`${data.thumbnail}`} alt={data.title}/>
+    return (
+        <div className={"item-card"}>
+            <img className={"img-fluid"} src={`${data.thumbnail}`} alt={data.title} />
             <div className={"item-card__information"}>
                 <div className={"pricing"}>
                     <span>₹{data.discountedPrice}</span>
@@ -33,19 +35,20 @@ const Card=({data})=>{
                     <h3>{data.title}</h3>
                 </div>
             </div>
-            {counter<1
-            ?<button className={"cart-add"} onClick={IncreaseCounter}>
-                <span>Add to Cart</span>
-                <img src="shopping-cart.png" width={20} height={20} alt="Cart Icon"/>
-            </button> :
-            <div className="cart-addon">
-                <button onClick={DecreaseCounter}><span>-</span></button>
-                <span>{counter}</span>
-                <button onClick={IncreaseCounter}><span>+</span></button>
-            </div>
-            }
+            {counter < 1 ? (
+                <button className={"cart-add"} onClick={handleAddToCart}>
+                    <span>Add to Cart</span>
+                    <img src="shopping-cart.png" width={20} height={20} alt="Cart Icon" />
+                </button>
+            ) : (
+                <div className="cart-addon">
+                    <button onClick={DecreaseCounter}><span>-</span></button>
+                    <span>{counter}</span>
+                    <button onClick={IncreaseCounter}><span>+</span></button>
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Card
+export default Card;
