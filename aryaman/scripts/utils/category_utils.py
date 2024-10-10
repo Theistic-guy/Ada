@@ -1,6 +1,7 @@
 from aryaman.scripts.category.category import category
 import pickle
 import pandas as pd
+import traceback
 from aryaman.scripts.global_vars import get_full_headers,get_no_of_sublevels,get_path_to_categories_name_id_mappings_csv,get_path_to_categories_tree_pkl
 
 def load_tree_obj(ignoreExceptionMsg=False):
@@ -14,6 +15,7 @@ def load_tree_obj(ignoreExceptionMsg=False):
     except Exception as e:
         if not ignoreExceptionMsg:
             print("Exception in loading tree object ",e)
+            # traceback.print_exc()
 
 def getCategoryObjectHandle(category_tree,category_name=None,category_id=None,ignoreExceptionMsg=False):
     '''
@@ -285,4 +287,19 @@ def findPath(category_root,category_id,returnStringPath=False,returnIdPath=False
     except Exception as e:
         if not ignoreExceptionMsg:
             print("Exception occurred in finding path for a category ",e)
-    
+
+def findSubCategories(category_root,category_id,ignoreExceptionMsg=False):
+    '''
+    returns a list of sub-categories of a particular category , returns empty list otherwise
+    '''
+    try:
+        x = category_root.retrieveById(category_id)
+        y = []
+        if len(x)==0:
+            return []
+        for e in x[0][0]._category__sub_categories:
+            y.append((e.name,e.category_id))
+        return y
+    except Exception as e:
+        if not ignoreExceptionMsg:
+            print("Exception occurred in finding sub categories names ",e)
