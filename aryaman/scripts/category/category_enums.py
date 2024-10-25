@@ -13,13 +13,13 @@ class BabyProducts(Enum):
     Baby_Feeding_Bottles = 9
     Nursing_and_Breastfeeding_Products = 10
     Cribs_and_Bassinets = 11
-    Baby_Health_Monitors = 12
-    Babyproofing_Kits = 13
-    Baby_Carriers = 14
-    Baby_Bedding_Sets = 15
+    # Baby_Health_Monitors = 12
+    # Babyproofing_Kits = 13
+    Baby_Carriers = 12
+    # Baby_Bedding_Sets = 15
     __class_name = "Baby Products"
 
-    __subs = ["Diapers" ,"Baby Wipes" ,"Baby Clothing" ,"Strollers" ,"Car Seats" ,"Baby Toys" ,"Baby Bathing Products" ,"Baby Skincare Products" ,"Baby Feeding Bottles" ,"Nursing & Breastfeeding Products" ,"Cribs & Bassinets" ,"Baby Health Monitors" ,"Babyproofing Kits" ,"Baby Carriers" ,"Baby Bedding Sets"]
+    __subs = ["Diapers" ,"Baby Wipes" ,"Baby Clothing" ,"Strollers" ,"Car Seats" ,"Baby Toys" ,"Baby Bathing Products" ,"Baby Skincare Products" ,"Baby Feeding Bottles" ,"Nursing & Breastfeeding Products" ,"Cribs & Bassinets"  ,"Baby Carriers" ]
     @classmethod
     def get_sub_name(cls, member):
         return cls.__subs[member.value-1]
@@ -95,15 +95,15 @@ class Books(Enum):
     Mystery_and_Thriller_Books  = 8
     Science_Fiction_Books  = 9
     Romance_Novels  = 10
-    Graphic_Novels  = 11
-    Historical_Fiction  = 12
-    Travel_Guides  = 13
-    Poetry_Books  = 14
-    Parenting_Books  = 15
+    # Graphic_Novels  = 11
+    # Historical_Fiction  = 12
+    # Travel_Guides  = 13
+    Poetry_Books  = 11
+    # Parenting_Books  = 15
 
     __class_name = "Books"
 
-    __subs = ["Fiction Books" ,"Non-Fiction Books" ,"Children's Story Books" ,"Self-Help Books" ,"Academic Textbooks" ,"Biographies & Autobiographies" ,"Cookbooks & Recipe Books" ,"Mystery & Thriller Books" ,"Science Fiction Books" ,"Romance Novels" ,"Graphic Novels" ,"Historical Fiction" ,"Travel Guides" ,"Poetry Books" ,"Parenting Books"]
+    __subs = ["Fiction Books" ,"Non-Fiction Books" ,"Children's Story Books" ,"Self-Help Books" ,"Academic Textbooks" ,"Biographies & Autobiographies" ,"Cookbooks & Recipe Books" ,"Mystery & Thriller Books" ,"Science Fiction Books" ,"Romance Novels"  ,"Poetry Books" ]
     @classmethod
     def get_sub_name(cls, member):
         return cls.__subs[member.value-1]
@@ -134,17 +134,17 @@ class ClothingShoesAndJewelry(Enum):
     Womens_Jewelry = 6
     Mens_Watches = 7
     Casual_Shoes_for_Men = 8
-    Formal_Shoes_for_Women = 9
-    Sports_Shoes_for_Women = 10
-    Ethnic_Wear_for_Men = 11
-    Winter_Jackets_for_Men = 12
-    Womens_Handbags = 13
-    Mens_Belts_and_Wallets = 14
-    Womens_Scarves_and_Wraps = 15
+    # Formal_Shoes_for_Women = 9
+    Sports_Shoes_for_Women = 9
+    # Ethnic_Wear_for_Men = 11
+    # Winter_Jackets_for_Men = 12
+    Womens_Handbags = 10
+    Mens_Belts_and_Wallets = 11
+    Womens_Scarves_and_Wraps = 12
 
     __class_name = "Clothing , Shoes & Jewelry"
 
-    __subs = ["Men's T-Shirts" ,"Women's Dresses" ,"Sneakers for Men" ,"Women's Heels" ,"Kids' Clothing Sets" ,"Women's Jewelry" ,"Men's Watches" ,"Casual Shoes for Men" ,"Formal Shoes for Women" ,"Sports Shoes for Women" ,"Ethnic Wear for Men" ,"Winter Jackets for Men" ,"Women's Handbags" ,"Men's Belts & Wallets" ,"Women's Scarves & Wraps"]
+    __subs = ["Men's T-Shirts" ,"Women's Dresses" ,"Sneakers for Men" ,"Women's Heels" ,"Kids' Clothing Sets" ,"Women's Jewelry" ,"Men's Watches" ,"Casual Shoes for Men" ,"Sports Shoes for Women" ,"Women's Handbags" ,"Men's Belts & Wallets" ,"Women's Scarves & Wraps"]
     @classmethod
     def get_sub_name(cls, member):
         return cls.__subs[member.value-1]
@@ -176,16 +176,16 @@ class Electronics(Enum):
     Bluetooth_Speakers = 7
     Mobile_Accessories = 8
     Smart_TVs = 9
-    Home_Audio_Systems = 10
-    Gaming_Consoles = 11
-    Computer_Monitors = 12
-    DSLR_Cameras = 13
-    Printers_and_Scanners = 14
-    WiFi_Routers = 15
+    # Home_Audio_Systems = 10
+    Gaming_Consoles = 10
+    # Computer_Monitors = 12
+    # DSLR_Cameras = 13
+    Printers_and_Scanners = 11
+    # WiFi_Routers = 15
 
     __class_name = "Electronics"
     
-    __subs = ["Mobile Phones" ,"Laptops" ,"Earphones & Headphones" ,"Smartwatches" ,"Power Banks" ,"Tablets" ,"Bluetooth Speakers" ,"Mobile Accessories" ,"Smart TVs" ,"Home Audio Systems" ,"Gaming Consoles" ,"Computer Monitors" ,"DSLR Cameras" ,"Printers & Scanners" ,"WiFi Routers"]
+    __subs = ["Mobile Phones" ,"Laptops" ,"Earphones & Headphones" ,"Smartwatches" ,"Power Banks" ,"Tablets" ,"Bluetooth Speakers" ,"Mobile Accessories" ,"Smart TVs" ,"Gaming Consoles" ,"Printers & Scanners" ]
     @classmethod
     def get_sub_name(cls, member):
         return cls.__subs[member.value-1]
