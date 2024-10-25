@@ -218,16 +218,16 @@ class HomeAndKitchen(Enum):
     Dining_and_Serveware = 7
     Water_Purifiers = 8
     Curtains_and_Drapes = 9
-    Air_Purifiers = 10
-    Vacuum_Cleaners = 11
-    Kitchen_Storage_Containers = 12
-    Bath_Towels_and_Mats = 13
-    Lighting_and_Lamps = 14
-    Home_Furniture_Sets = 15
+    # Air_Purifiers = 10
+    # Vacuum_Cleaners = 11
+    # Kitchen_Storage_Containers = 12
+    Bath_Towels_and_Mats = 10
+    # Lighting_and_Lamps = 14
+    Home_Furniture_Sets = 11
 
     __class_name = "Home & Kitchen"
 
-    __subs = ["Kitchen Appliances" ,"Cookware Sets" ,"Bed Sheets & Linens" ,"Home Decor Items" ,"Storage Solutions" ,"Cleaning Supplies" ,"Dining & Serveware" ,"Water Purifiers" ,"Curtains & Drapes" ,"Air Purifiers" ,"Vacuum Cleaners" ,"Kitchen Storage Containers" ,"Bath Towels & Mats" ,"Lighting & Lamps" ,"Home Furniture Sets"]
+    __subs = ["Kitchen Appliances" ,"Cookware Sets" ,"Bed Sheets & Linens" ,"Home Decor Items" ,"Storage Solutions" ,"Cleaning Supplies" ,"Dining & Serveware" ,"Water Purifiers" ,"Curtains & Drapes"  ,"Bath Towels & Mats"  ,"Home Furniture Sets"]
     @classmethod
     def get_sub_name(cls, member):
         return cls.__subs[member.value-1]
@@ -255,20 +255,20 @@ class SportsAndOutdoors(Enum):
     Yoga_Mats = 3
     Sportswear_for_Men = 4
     Sportswear_for_Women = 5
-    Camping_and_Hiking_Gear = 6
-    Bicycles_and_Cycling_Accessories = 7
-    Swimming_Gear = 8
-    Cricket_Bats_and_Balls = 9
-    Badminton_Racquets_and_Shuttlecocks = 10
-    Footballs_and_Accessories = 11
-    Tennis_Racquets = 12
-    Gym_Gloves_and_Accessories = 13
-    Outdoor_Tents = 14
-    Water_Bottles_and_Shakers = 15
+    # Camping_and_Hiking_Gear = 6
+    Bicycles_and_Cycling_Accessories = 6
+    Swimming_Gear = 7
+    Cricket_Bats_and_Balls = 8
+    Badminton_Racquets_and_Shuttlecocks = 9
+    Footballs_and_Accessories = 10
+    # Tennis_Racquets = 12
+    Gym_Gloves_and_Accessories = 11
+    # Outdoor_Tents = 14
+    Water_Bottles_and_Shakers = 12
 
     __class_name = "Sports & Outdoors"
 
-    __subs = ["Fitness Equipment" ,"Running Shoes" ,"Yoga Mats" ,"Sportswear for Men" ,"Sportswear for Women" ,"Camping & Hiking Gear" ,"Bicycles & Cycling Accessories" ,"Swimming Gear" ,"Cricket Bats & Balls" ,"Badminton Racquets & Shuttlecocks" ,"Footballs & Accessories" ,"Tennis Racquets" ,"Gym Gloves & Accessories" ,"Outdoor Tents" ,"Water Bottles & Shakers"]
+    __subs = ["Fitness Equipment" ,"Running Shoes" ,"Yoga Mats" ,"Sportswear for Men" ,"Sportswear for Women"  ,"Bicycles & Cycling Accessories" ,"Swimming Gear" ,"Cricket Bats & Balls" ,"Badminton Racquets & Shuttlecocks" ,"Footballs & Accessories" ,"Gym Gloves & Accessories" ,"Water Bottles & Shakers"]
     @classmethod
     def get_sub_name(cls,member):
         return cls.__subs[member.value-1]
