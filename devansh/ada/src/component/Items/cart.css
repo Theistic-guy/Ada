@@ -1,0 +1,140 @@
+.cart {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.empty-cart-message {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+}
+
+.cart-content {
+    display: flex;
+    justify-content: space-between; /* Aligns items and total container */
+}
+
+.cart-items {
+    flex: 1; /* Takes up remaining space */
+    border: 1px solid blue; /* Border around the item box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside the box */
+    margin-right: 20px; /* Space between items and total */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid black;
+    padding: 15px 0;
+}
+
+.cart-item-image {
+    max-width: 100px; /* Limit image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and details */
+    border-radius: 4px; /* Rounded corners for images */
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Allow details to take up remaining space */
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0071e1; /* Flipkart blue */
+}
+
+.price {
+    color: #ff3e6c; /* Price color */
+    font-weight: bold;
+}
+
+.quantity {
+    font-size: 14px;
+    color: #777;
+}
+
+button {
+    background-color: #2874f0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 5px; /* Space between buttons */
+}
+
+
+.total-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align total text to the right */
+    margin-top: 20px; /* Space above total */
+    border: 2px solid black; /* Optional: add a border to separate it */
+    padding-top: 10px; /* Padding for visual spacing */
+    height: 200px; /* Set a fixed height */
+    width: 200px;
+    overflow: hidden; /* Prevents overflow */
+    background-color: white;
+}
+
+.total {
+    font-weight: bold; /* Bold text for total */
+    font-size: 18px;
+    margin-bottom: 10px; /* Space between total and button */
+}
+
+
+
+.delete-button {
+    background: none; /* Remove default button styles */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 5px; /* Space between buttons */
+}
+
+.delete-button svg {
+    width: 20px; /* Set width of the icon */
+    height: 20px; /* Set height of the icon */
+    fill: #2874f0; /* Color of the delete icon */
+    transition: fill 0.3s; /* Smooth transition for hover effect */
+}
+
+.delete-button:hover svg {
+    fill: #c0392b; /* Darker red on hover */
+}
+.place-order-button {
+    background-color: blue; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px; /* Space above the button */
+    transition: background-color 0.3s;
+}
+
+.place-order-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
