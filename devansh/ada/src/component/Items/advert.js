@@ -1,7 +1,7 @@
 const Ad=()=>{
     return(
         <div className={"item-banner"}>
-            <img className={"img-fluid"} src="ADA banner.png" alt="advert"/>
+            <img className={"img-fluid"} src="gadgits.png"/>
         </div>
     )
 }

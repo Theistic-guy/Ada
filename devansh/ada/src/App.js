@@ -1,6 +1,8 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from "./component/Items/HomePage";
+import ProfilePage from "./component/Items/AboutUs";
 import Header from './component/Header';
 import { CartProvider } from './component/Items/CartContext';
 import Data from './component/Items/data';
@@ -11,6 +13,7 @@ import Signup from './component/Items/Signup';
 import Cart from './component/Items/cart';
 import "aos/dist/aos.css";
 import './index.css';
+import './component/Items/modal.css';
 
 function App() {
   return (
@@ -19,7 +22,9 @@ function App() {
         <div>
           
           <Routes>
+            <Route path="/" element={<HomePage></HomePage>}></Route>
             <Route path="/login" element={<Login />} />
+            <Route path="/About" element={<ProfilePage></ProfilePage>}></Route>
             <Route path="/signup" element={<Signup />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/" element={

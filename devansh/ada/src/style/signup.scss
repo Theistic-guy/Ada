@@ -1,29 +1,29 @@
-.login-container {
+.signup-container {
     position: relative; /* Position relative for the pseudo-element */
-    padding: 100px; /* Increased padding */
+    padding: 50px; /* Increased padding */
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 500px; /* Increased width */
-    margin: 100px auto; /* Center with top margin */
+    margin-top: 5px;
+    margin: 50px auto; /* Center with top margin */
     text-align: center;
     /* background: #ffffff; White background for the container */
     backdrop-filter: blur(8px);
 }
-
-.login-back{
+.sign-back{
     content: '';
     position: absolute; /* Position absolutely within the container */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/public/LoginBackground.png'); /* Adjusted URL */
+    background-image: "LoginBackground.png"; /* Adjusted URL */
     background-repeat: no-repeat;
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
     z-index: 0;
 }
-.login-container::before {
+.signup-container::before {
     content: '';
     position: absolute; /* Position absolutely within the container */
     top: 0;
@@ -39,37 +39,34 @@
     z-index: 0; /* Behind the content */
 }
 
-.login-container > * {
+.signup-container > * {
     position: relative; /* Position content above the background */
     z-index: 1; /* Above the pseudo-element */
 }
 
 
-.login-container:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-}
 
 h1 {
     margin-bottom: 20px;
-    color: #333;
+    color: black; /* Darker text for better readability */
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
-    border: 2px solid #ddd;
+    border: 2px solid #ddd; /* Border styling */
     border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+    font-size: 16px; /* Larger font */
+    transition: border-color 0.3s; /* Transition for focus effect */
 }
 
 input:focus {
-    border-color: #2575fc;
-    outline: none;
+    border-color: #2575fc; /* Change border color on focus */
+    outline: none; /* Remove default outline */
 }
 
-.login {
+.sign {
     padding: 12px;
     border: none;
     border-radius: 5px;
@@ -81,13 +78,14 @@ input:focus {
     transition: background-color 0.3s; /* Transition for hover effect */
 }
 
-.login:hover {
+.sign:hover {
     background-color: #2575fc; /* Darker shade on hover */
 }
 
 p {
     margin-top: 15px;
-    color: #666; /* Lighter text color for secondary text */
+    color: black; /* Lighter text color for secondary text */
+    font-size: large;
 }
 
 a {

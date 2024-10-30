@@ -6,20 +6,15 @@ const Cart = () => {
     const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
 
     const handlePlaceOrder = () => {
-        // Confirm with the user before placing the order
         const confirmed = window.confirm("Are you sure you want to place the order?");
         if (confirmed) {
-            // Simulate order processing (e.g., sending data to a backend)
             const orderDetails = {
                 items: cartItems,
                 total: cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
             };
 
-            // Example: Replace with your API call
             console.log('Order placed!', orderDetails);
-
-            // Clear the cart after placing the order
-            clearCart(); // Call your function to clear the cart
+            clearCart();
             alert("Your order has been placed successfully!");
         }
     };
@@ -46,7 +41,12 @@ const Cart = () => {
                                             </svg>
                                         </button>
                                         <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
-                                        <button onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}>-</button>
+                                        <button 
+                                            onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))} 
+                                            style={{ opacity: item.quantity === 1 ? 0.5 : 1 }} // Make transparent if quantity is 1
+                                        >
+                                            -
+                                        </button>
                                     </div>
                                 </li>
                             ))}

@@ -74,7 +74,7 @@ h4 {
 }
 
 button {
-    background-color: #2874f0; /* Flipkart blue */
+    background-color: #2874f0;
     color: white;
     border: none;
     border-radius: 4px;
@@ -84,9 +84,6 @@ button {
     margin-left: 5px; /* Space between buttons */
 }
 
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
 
 .total-container {
     display: flex;
