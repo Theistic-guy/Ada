@@ -78,12 +78,12 @@ header{
         button[type="submit"] {
             background-color: #A594F9;
             position: relative;
-            right: 36px;
+            right: 30px;
             padding-right: 8px !important;
             padding-left: 8px !important;
             border: unset;
-            border-top-right-radius: 2px;
-            border-bottom-right-radius: 2px;
+            border-top-right-radius: 1px;
+            border-bottom-right-radius: 1px;
             cursor: pointer;
         }
     }
