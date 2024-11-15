@@ -92,8 +92,8 @@ const Header=()=>{
                 </Link>
                 <button>
                     <span onClick={()=>{setOpen(!open)}} ref={menuRef}>
-                        <img src="settings.png" height={30} width={30}/>
-                        {/* <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
+                        {/* <img src="settings.png" height={30} width={30}/>
+                        <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
                             <ul>
                                 <Link to={"/Profile"}>
                                     <DropdownItem img = {"user.png"} text = {"My Profile"}/>
