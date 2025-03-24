@@ -1,6 +1,7 @@
 import { useState,useEffect,useRef } from "react"
 import { Link } from "react-router-dom";
-import "./Items/header.css"
+import "./Items/header.css";
+import "./Items/DropPage.css";
 // import Login from "./LoginPages/Login";
 // import Link from "react-router-dom"
 
@@ -93,7 +94,7 @@ const Header=()=>{
                 <button>
                     <span onClick={()=>{setOpen(!open)}} ref={menuRef}>
                         <img src="settings.png" height={30} width={30}/>
-                        {/* <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
+                        <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
                             <ul>
                                 <Link to={"/Profile"}>
                                     <DropdownItem img = {"user.png"} text = {"My Profile"}/>
@@ -104,7 +105,7 @@ const Header=()=>{
                                 <DropdownItem img = {"question.png"} text = {"Helps"}/>
                                 <Link to={"/Login"}><DropdownItem img ={"log-out.png"} text ={"Login"}/></Link>
                             </ul>
-                        </div> */}
+                        </div>
                     </span>
                 </button>
             </div>
@@ -116,7 +117,7 @@ const Header=()=>{
 function DropdownItem(props){
     return(
       <li className = 'dropdownItem'>
-        <img src={props.img} />
+        <img src={props.img} width={28} height={28}/>
         <a> {props.text} </a>
       </li>
     );

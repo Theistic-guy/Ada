@@ -36,3 +36,9 @@ body{
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 1);
 }
+.cart-add{
+    margin:auto;
+}
+.add{
+    margin-left: 0.1px;
+}
