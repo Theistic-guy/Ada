@@ -3,6 +3,9 @@
 import HomePage from "./component/HomePage";
 import { BrowserRouter,Route,Router,Routes } from "react-router-dom";
 import ProfilePage from "./component/Pages/AboutUs";
+import LoginSignUp from "./component/LoginSignUp";
+import SignUp from "./component/LoginPages/SignUp";
+import Login from "./component/LoginPages/Login";
 
 function App() {
   return (
@@ -11,9 +14,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage></HomePage>}></Route>
                 <Route path="/About" element={<ProfilePage></ProfilePage>}></Route>
-                <Route path="/Profile"></Route>
-                <Route path="/Login"></Route>
-                <Route path="/About"></Route>
+                {/* <Route path="/Profile"></Route> */}
+                <Route path="/Login" element={<Login></Login>}></Route>
+                <Route path="/Signup" element={<SignUp></SignUp>}></Route>
             </Routes>
         </BrowserRouter>
     </>

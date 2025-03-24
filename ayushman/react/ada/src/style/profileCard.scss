@@ -17,8 +17,9 @@
 .profileCard{
   height: 100vh;
   display: flex;
-  align-items: center;
-  // justify-content: center;
+  flex-direction: row;
+  // align-items: center;
+  justify-content: space-between;
   background-color: #f4f4f4;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;

@@ -4,7 +4,7 @@ import Card from "./card"
 import Loader from "../UI/loader"
 import Link from "./catagoryLinks"
 
-const Data=()=>{
+const Data=({catag})=>{
 
     const [items,setItems]=useState([]);
     const [loader,setLoader]=useState(true);
@@ -12,12 +12,17 @@ const Data=()=>{
     useEffect(()=>{
          async function fetchItem(){
             try{
-                const dataItem= await axios.get("https://major-project-ada-1-default-rtdb.firebaseio.com/items.json")
+                const dataItem= await axios.get("http://localhost:5000/products");
                 const data=dataItem.data
-                const transferData=data.map((item,index)=>{
-                    return{
-                        ...item,
-                        id:index+1
+                let n=0;
+                // const catagory={catag};
+                const transferData=data.filter((eventData)=>{
+                    if(eventData.Tag===catag && eventData.stars>=4.5 && n<5){
+                        n++;
+                        return eventData;
+                    }
+                    else{
+                        return;
                     }
                 })
                 setItems(transferData)
@@ -36,7 +41,7 @@ const Data=()=>{
          return(
             <>
                 <>
-                    <Link catagory={"Electronics"}></Link>
+                    {/* <Link catagory={"Electronics"}></Link> */}
                     <div className={"product-list"}>
                         <div className={"product-list--wrapper"}>
                             {

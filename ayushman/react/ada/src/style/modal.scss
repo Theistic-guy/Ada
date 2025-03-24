@@ -25,6 +25,11 @@
     display: flex;
     // position: relative;
 }
+#modal_card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 @media (min-width: 768px) {
     .modal {
         width: 40rem;

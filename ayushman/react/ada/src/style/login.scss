@@ -1,101 +1,92 @@
-.login-container {
-    position: relative; /* Position relative for the pseudo-element */
-    padding: 100px; /* Increased padding */
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 500px; /* Increased width */
-    margin: 100px auto; /* Center with top margin */
-    text-align: center;
-    /* background: #ffffff; White background for the container */
-    backdrop-filter: blur(8px);
-}
-
-.login-back{
-    content: '';
-    position: absolute; /* Position absolutely within the container */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: "LoginBackground.png"; /* Adjusted URL */
-    background-repeat: no-repeat;
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the background image */
-    z-index: 0;
-}
-.login-container::before {
-    content: '';
-    position: absolute; /* Position absolutely within the container */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* background-image: url('/public/Screenshot 2024-09-26 140448.png'); Adjusted URL */
-    background-repeat: no-repeat;
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the background image */
-    opacity: 0.5; /* Adjust this value for transparency (0 to 1) */
-    border-radius: 15px; /* Match the container's border radius */
-    z-index: 0; /* Behind the content */
-}
-
-.login-container > * {
-    position: relative; /* Position content above the background */
-    z-index: 1; /* Above the pseudo-element */
-}
-
-
-.login-container:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-}
-
-h1 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-input {
+.loginPage {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("../Login.png");
+    background-size: 110%;
+    background-repeat:inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .auth-container {
+    // margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    height: 100vh;
+  }
+  
+  .auth-box {
+    position:unset;
+    // margin: 30px;
+    background: white;
     padding: 10px;
-    margin: 10px 0;
-    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .auth-box:hover {
+    transform: scale(1.02);
+  }
+  
+  .auth-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-input {
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-input:focus {
-    border-color: #2575fc;
+    transition: 0.3s;
+  }
+  
+  .auth-input:focus {
+    border-color: #A594F9;
     outline: none;
-}
-
-.login {
-    padding: 12px;
+    box-shadow: 0 0 5px #A594F9;
+  }
+  
+  .auth-button {
+    background: #2575fc;
+    color: white;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #6a11cb; /* Button background */
-    color: white; /* Button text color */
-    font-size: 16px; /* Button font size */
-    width: 100%; /* Full width */
-    transition: background-color 0.3s; /* Transition for hover effect */
-}
-
-.login:hover {
-    background-color: #2575fc; /* Darker shade on hover */
-}
-
-p {
-    margin-top: 15px;
-    color: #666; /* Lighter text color for secondary text */
-}
-
-a {
-    color: white; /* Link color */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s; /* Transition for link hover */
-}
-
-a:hover {
-    color: #2575fc; /* Change link color on hover */
-}
+    margin-top: 10px;
+    transition: background 0.3s;
+  }
+  
+  .auth-button:hover {
+    background: #A594F9;
+  }
+  
+  .auth-toggle {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .auth-link {
+    color: #2575fc;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .auth-link:hover {
+    color: #A594F9;
+  }
+  
