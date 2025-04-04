@@ -1,0 +1,31 @@
+.subheader-container {
+    display: flex;
+    align-items: center;
+    background-color: #f5eefd;;
+    padding: 5px 10px;
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .subheader-logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .subheader-logo img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+  }
+  
+  .subheader-text {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 350;
+    color: black;
+  }
+  
