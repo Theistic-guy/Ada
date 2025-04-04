@@ -2,9 +2,8 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import Card from "./card"
 import Loader from "../UI/loader"
-import Link from "./catagoryLinks"
 
-const Data=({catag})=>{
+const SearchData=({identity})=>{
 
     const [items,setItems]=useState([]);
     const [loader,setLoader]=useState(true);
@@ -13,18 +12,10 @@ const Data=({catag})=>{
          async function fetchItem(){
             try{
                 const dataItem= await axios.get("http://localhost:5000/products");
-                const data=dataItem.data
-                let n=0;
+                const data=dataItem.data;
                 // const catagory={catag};
-                const transferData=data.filter((eventData)=>{
-                    if(eventData.Tag===catag && n<5){
-                        n++;
-                        return eventData;
-                    }
-                    else{
-                        return;
-                    }
-                })
+                const asinSet = new Set(identity);
+                const transferData = data.filter(product => asinSet.has(product.ASIN));
                 setItems(transferData)
                 setLoader(false)
             }
@@ -36,7 +27,7 @@ const Data=({catag})=>{
                 setLoader(false)
             }
          }
-         fetchItem()},[])
+         fetchItem()},[identity])
 
          return(
             <>
@@ -61,4 +52,4 @@ const Data=({catag})=>{
 
     
 
-export default Data
+export default SearchData
