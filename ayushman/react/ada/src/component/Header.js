@@ -40,7 +40,7 @@ const Header=()=>{
         <header>
             <div className="nav-brand">
                 <Link to="/">
-                    <span><img src="ADALogo1.png" height={100} width={100}/></span>
+                    <span><img src="LLMLogo.png" height={100} width={100}/></span>
                 </Link>
             </div>
             <div className="searchBox-container">

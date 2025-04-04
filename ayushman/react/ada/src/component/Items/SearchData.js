@@ -32,7 +32,6 @@ const SearchData=({identity})=>{
          return(
             <>
                 <>
-                    {/* <Link catagory={"Electronics"}></Link> */}
                     <div className={"product-list"}>
                         <div className={"product-list--wrapper"}>
                             {
