@@ -49,7 +49,7 @@ const Header=()=>{
                         name="search"
                         type="text"
                         id="search"
-                        placeholder="Enter product name, category"
+                        placeholder="Search the Products .... "
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />

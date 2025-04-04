@@ -21,7 +21,7 @@ const Search=()=>{
     const fetchSearchResults = async (query) => {
         try {
             const response = await axios.post("http://localhost:8000/search", { query });
-            setSearchResults(response.data);
+            setSearchResults(response.data.asins);
         } catch (error) {
             console.error("Error fetching search results:", error);
         }
