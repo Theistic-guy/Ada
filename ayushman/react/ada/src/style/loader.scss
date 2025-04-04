@@ -5,21 +5,24 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 1100;
-    background-color: rgba(227, 255, 199, 1);
+    z-index: 1101;
+    // background-color: black;
 }
 
 // Loading animation
 .loading-dots {
-    position: absolute;
+    position: fixed;
+    z-index: 1101;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
+    // background-color: black;
 
     div:first-child {
         color: rgba($color: $black, $alpha: 0.5);
+        // background-color: black;
     }
 
     &--dot {

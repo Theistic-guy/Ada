@@ -1,0 +1,146 @@
+/* src/component/Items/ProductDetail.css */
+
+/* Container for the product detail */
+.product-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Flexbox layout for the product image and details */
+.product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Style for the product image */
+.product-detail-image {
+    flex: 1 1 40%;
+    max-width: 450px;
+}
+
+.product-detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+}
+
+/* Style for product information */
+.product-detail-info {
+    flex: 1 1 50%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.product-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.product-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Pricing styles */
+.pricing {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.discounted-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f39c12;
+}
+
+.original-price {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Add to Cart button */
+.add-to-cart-btn {
+    background-color: #A594F9;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+
+    transform: scale(1.05);
+}
+
+.add-to-cart-btn:active {
+    transform: scale(1);
+}
+
+/* Error message for missing product data */
+.error {
+    text-align: center;
+    font-size: 1.5rem;
+    color: red;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-detail {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-detail-info {
+        max-width: 100%;
+    }
+
+    .product-detail-image {
+        max-width: 100%;
+    }
+
+    .product-title {
+        font-size: 1.8rem;
+    }
+
+    .product-description {
+        font-size: 1rem;
+    }
+
+    .pricing {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .discounted-price {
+        font-size: 1.3rem;
+    }
+
+    .original-price {
+        font-size: 1rem;
+    }
+}

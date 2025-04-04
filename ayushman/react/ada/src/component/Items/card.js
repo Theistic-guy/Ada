@@ -33,12 +33,12 @@ const Card=({data})=>{
     return(
         <Fragment>
             <div className={"item-card"} data-aos="fade-up">
-            <img className={"img-fluid"} src={`${data.thumbnail}`} alt={data.title} onClick={HandleModal}/>
+            <img className={"img-fluid"} src={`${data.Images[0]}`} alt={data.title} onClick={HandleModal}/>
             <div className={"item-card__information"}>
                 <div className={"pricing"}>
-                    <span>₹{data.discountedPrice}</span>
+                    <span>₹{data.salePrice}</span>
                     <small>
-                        <strike>₹{data.price}</strike>
+                        <strike>₹{data.listPrice}</strike>
                     </small>
                 </div>
                 <div className={"title"}>
@@ -60,17 +60,17 @@ const Card=({data})=>{
                 <Modal onClose={HandleModal}>
                     <div className="item-card__modal">
                         <div className="img-wrap">
-                            <img className={"img-fluid"} src={`${data.thumbnail}`} alt={data.title}/>
+                            <img className={"img-fluid"} src={`${data.Images[0]}`} alt={data.title}/>
                         </div>
                         <div className="meta">
                             <h3>{data.title}</h3>
                             <div className={"pricing"}>
-                                <span>₹{data.discountedPrice}</span>
+                                <span>₹{data.salePrice}</span>
                                 <small>
-                                    <strike>₹{data.price}</strike>
+                                    <strike>₹{data.listPrice}</strike>
                                 </small>
                             </div>
-                            <p>{data.description}</p>
+                            <p>{data.bookDescription}</p>
                         </div>
                     </div>
                         <div className="AddModal">
@@ -81,7 +81,7 @@ const Card=({data})=>{
                                     {/* <img src={AddToCartIcon} alt="Cart Icon"/> */}
                                 </button>
                                 :
-                                <div className="cart-addon card-addon__modal">
+                                <div className="cart-addon card-addon__modal" id="modal_card">
                                     <button onClick={DecreaseCounter}><span>-</span></button>
                                     <span>{counter}</span>
                                     <button onClick={IncreaseCounter}><span>+</span></button>

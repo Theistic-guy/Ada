@@ -13,12 +13,14 @@ const HomePage=()=>{
             <Header></Header>
             {/* <DropPage></DropPage> */}
             <Ad></Ad>
-            {/* <Link catagory={"Electronics"}></Link> */}
-            <Data></Data>
-            <Link catagory={"Sports"}></Link>
-            <Link catagory={"Kitchen"}></Link>
+            <Link catagory={"Electronics"}></Link>
+            <Data catag={"Mobile Phones"}></Data>
             <Banner></Banner>
+            <Link catagory={"Fitness & Gym"}></Link>
+            <Data catag={"Fitness Equipment"}></Data>
             <SamsungAdv></SamsungAdv>
+            <Link catagory={"Kitchen"}></Link>
+            <Data catag={"Dining & Serveware"}></Data>
         </div>
     );
 }
