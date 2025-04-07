@@ -21,11 +21,11 @@ const Search=()=>{
     }, [location.search]);
 
     const fetchSearchResults = async (query) => {
-        try {
+        try{
             const response = await axios.post("http://localhost:8000/search", { query });
             setSearchResults(response.data.asins);
             getQuote(response.data.explanation);
-        } catch (error) {
+        }catch (error){
             console.error("Error fetching search results:", error);
         }
     };
