@@ -4,7 +4,7 @@ const Subheader = ({ text }) => {
             <div className="subheader-logo">
                 <img src="infoLogo.png" alt="Logo" />
             </div>
-            <h2 className="subheader-text">{text}</h2>
+            <h2 className="subheader-text">You are seeing the following products cause .... <br></br>{text}</h2>
         </div>
     );
 };

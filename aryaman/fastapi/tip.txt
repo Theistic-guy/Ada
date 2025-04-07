@@ -1,0 +1,10 @@
+🧪 Little Tip: Set Up FAISS Right with Metadata
+When building the index originally, include metadata like this:
+
+python
+Copy
+Edit
+texts = [...]  # text representation of each product
+metadatas = [{"asin": product["asin"]} for product in your_json_data]
+
+vector_store = FAISS.from_texts(texts, embedding=embeddings, metadatas=metadatas)
