@@ -1,0 +1,53 @@
+.signup-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    overflow: hidden;
+  }
+  
+  .auth-form-section,
+  .choices-box {
+    flex: 1;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .divider-line {
+    width: 2px;
+    background-color: #222;
+    height: auto;
+  }
+  
+//   .choices-box {
+//     background-color: rgba(255, 255, 255, 0.7);
+//   }
+  
+  .interest-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .interest-button {
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 0.9rem;
+  }
+  
+  .interest-button.selected {
+    background-color: #8113ac;
+    color: white;
+    border-color: #8113ac;
+  }
+  

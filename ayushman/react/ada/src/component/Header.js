@@ -4,15 +4,19 @@ import axios from "axios";
 
 
 
-const Header=()=>{
+const Header=({UserData ,userData})=>{
     
     const [open, setOpen] = useState(false);
     let menuRef = useRef();
     const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
+    const user = JSON.parse(localStorage.getItem("userData"));
+
+    const name = user?.UserName || ""; 
 
 
     useEffect(() => {
+
         let handler = (e)=>{
           if(!menuRef.current.contains(e.target)){
             setOpen(false);
@@ -28,8 +32,22 @@ const Header=()=>{
       });
       
     const handleSearch = async (e) => {
+
         e.preventDefault();
         if (!searchQuery.trim()) return;
+
+        try {
+            console.log(`Sending search query to backend ${name} , ${searchQuery}`);
+            await axios.post('http://localhost:5000/search', {
+              name,
+              searchQuery
+            }
+        );
+        } catch (err) {
+            console.error('Search save failed:', err);
+        }
+
+
         navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
     };
 
@@ -63,6 +81,7 @@ const Header=()=>{
                         </svg>
                     </button>
                 </form>
+
                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width="20"
                     height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" fill="none" strokeLinecap="round"
                     strokeLinejoin="round">
@@ -107,7 +126,7 @@ const Header=()=>{
                                 <Link>
                                     <DropdownItem img = {"question.png"} text = {"Helps"}/>
                                 </Link>
-                                <Link to={"/Login"}>
+                                <Link to={"/"}>
                                     <DropdownItem img = {"log-out.png"} text = {"Log Out"}/>
                                 </Link>
                             </ul>

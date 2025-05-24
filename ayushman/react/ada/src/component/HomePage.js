@@ -6,12 +6,27 @@ import SamsungAdv from "./Items/samsungAdv";
 import Link from "./Items/catagoryLinks";
 import "aos/dist/aos.css";
 import DropPage from "./Items/iphoneCorousel";
+import axios from "axios";
+import { useState,useEffect } from "react";
+import SHeader from "./Items/SHeader";
+
 
 const HomePage=()=>{
+
+    const [user,setUser]=useState({});
+    useEffect(() => {
+        const fetchUserData = async () => {
+            const userId = localStorage.getItem("userId");
+            const res = await axios.get(`http://localhost:5000/user/${userId}`);
+            setUser(res.data);
+        };
+        fetchUserData();
+    }, []);
+
     return(
         <div className='MainDiv'>
-            <Header></Header>
-            {/* <DropPage></DropPage> */}
+            <Header userData={user}></Header>
+            <SHeader text={user}></SHeader>
             <Ad></Ad>
             <Link catagory={"Electronics"}></Link>
             <Data catag={"Mobile Phones"}></Data>
