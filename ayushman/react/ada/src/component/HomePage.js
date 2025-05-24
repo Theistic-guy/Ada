@@ -9,6 +9,7 @@ import DropPage from "./Items/iphoneCorousel";
 import axios from "axios";
 import { useState,useEffect } from "react";
 import SHeader from "./Items/SHeader";
+import Rec from "./Items/recData";
 
 
 const HomePage=()=>{
@@ -28,7 +29,9 @@ const HomePage=()=>{
             <Header userData={user}></Header>
             <SHeader text={user}></SHeader>
             <Ad></Ad>
-            <Link catagory={"Electronics"}></Link>
+            <Link catagory={"Selected Only For You"}></Link>
+            <Rec></Rec>
+            <Link catagory={"Mobile Phone"}></Link>
             <Data catag={"Mobile Phones"}></Data>
             <Banner></Banner>
             <Link catagory={"Fitness & Gym"}></Link>
@@ -36,6 +39,16 @@ const HomePage=()=>{
             <SamsungAdv></SamsungAdv>
             <Link catagory={"Kitchen"}></Link>
             <Data catag={"Dining & Serveware"}></Data>
+            <Link catagory={"Skin Care"}></Link>
+            <Data catag={"Skin Care Products"}></Data>
+            <Link catagory={"Smell Nice"}></Link>
+            <Data catag={"Perfumes"}></Data>
+            <Link catagory={"Laptops"}></Link>
+            <Data catag={"Laptops"}></Data>
+            <Link catagory={"Headset"}></Link>
+            <Data catag={"Earphones & Headphones"}></Data>
+            <Link catagory={"Gaming"}></Link>
+            <Data catag={"Gaming Consoles"}></Data>
         </div>
     );
 }
