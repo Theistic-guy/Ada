@@ -41,3 +41,7 @@ package-lock.json
 
 # big csv files 
 aryaman/csv/categories_and_products/AllIdentifiedProductsUK.csv
+
+__pycache__/
+*.pyc
+

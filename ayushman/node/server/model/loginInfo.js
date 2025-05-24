@@ -29,6 +29,14 @@ const loginSchema= new mongoose.Schema({
     Age:{
         type:Number,
         required:true
+    },
+    interests:{
+        type:[String],
+        default:[]
+    },
+    searches: {
+        type: [String],
+        default: []
     }
 });
 

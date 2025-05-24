@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 // import "./AuthPage.css";
 import { Link } from "react-router-dom";
 import SignInApi from "../APIs/SignInApi";
+import { useNavigate } from "react-router-dom";
+import "../../style/login.scss";
 
 const Login=()=>{
 
@@ -10,6 +12,7 @@ const Login=()=>{
         UserName:"",
         password:""
     });
+    const navigate = useNavigate();
     const[errorMessage,setErrorMessage]=useState("");
 
     const handleChange = (e) => {
@@ -21,11 +24,16 @@ const Login=()=>{
         setErrorMessage("");
         try{
           const response=await SignInApi.post('/log',formData);
+
+          localStorage.setItem("userId", response.data.userId);
+          localStorage.setItem("userData", JSON.stringify(response.data.userData));
+
           setFormData({
             UserName:"",
             password:""
           });
           console.log("User Logged in Succesfully!!");
+          navigate("/Home");
         }
         catch (error){
           if (error.response && error.response.status === 400) {

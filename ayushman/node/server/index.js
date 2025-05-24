@@ -92,6 +92,39 @@ app.get("/products", async (req, res) => {
     }
 });
 
+app.post("/search", async (req, res) => {
+    const { name, searchQuery } = req.body;
+
+    if (!name || !searchQuery) {
+        return res.status(400).json({ message: "❌ userId and query are required" });
+    }
+
+    try {
+        const updatedUser = await LoginInfo.findOneAndUpdate(
+            { UserName: name },
+            { $push: { searches: searchQuery } },
+            { new: true }
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: "❌ User not found" });
+        }
+
+        res.status(200).json({
+            message: "✅ Search saved successfully",
+            searches: updatedUser.searches
+        });
+    } catch (error) {
+        console.error("Error saving search:", error);
+        res.status(500).json({ message: "❌ Server error", error: error.message });
+    }
+});
+
+app.get("/search",async(req,res)=>{
+    const data=req.body;
+    res.json(data);
+})
+
 app.post("/signUp", async (req, res) => {
         const existingUser =await LoginInfo.findOne({ email: req.body.email });
         const existUser =await LoginInfo.findOne({ UserName: req.body.UserName });
@@ -101,18 +134,36 @@ app.post("/signUp", async (req, res) => {
         if (existUser) {
             return res.status(400).json({ message: "❌ Username already registered" });
         }
+        console.log(req.body);
         const newUser = new LoginInfo(req.body);
         await newUser.save();
         res.status(201).json({ message: "✅ User registered successfully" });
 });
 
 app.post("/log", async(req,res)=>{
-    const ex=await LoginInfo.findOne({UserName:req.body.UserName});
-    if(ex.password===req.body.password){
-        return res.status(201);
+    const user = await LoginInfo.findOne({ UserName: req.body.UserName });
+    if (!user || user.password !== req.body.password) {
+        return res.status(400).json({ message: "❌ Incorrect User Name or Password" });
     }
-    res.status(400).json({message: "❌ Incorrect User Name or Password"});
+    res.status(200).json({
+        message: "✅ Login successful",
+        userId: user._id,
+        userName: user.UserName,
+        userData: user
+    });
 })
+
+app.get("/user/:id", async (req, res) => {
+    try {
+        const user = await LoginInfo.findById(req.params.id);
+        if (!user) return res.status(404).json({ message: "User not found" });
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
 // app.get("/signUp",async(req,res)=>{
 //     try {
 //         const users = await LoginInfo.find();
