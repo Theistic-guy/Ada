@@ -124,6 +124,3 @@ async def read_input(query:SearchRequest):
     return {"asins": asin_list[:10] ,"explanation":explanation}
      
 
-
-
-    
