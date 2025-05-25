@@ -47,8 +47,10 @@ const HomePage=()=>{
             <Data catag={"Laptops"}></Data>
             <Link catagory={"Headset"}></Link>
             <Data catag={"Earphones & Headphones"}></Data>
-            <Link catagory={"Gaming"}></Link>
-            <Data catag={"Gaming Consoles"}></Data>
+            <Link catagory={"Women's Fashion"}></Link>
+            <Data catag={"Women's Dresses"}></Data>
+            <Link catagory={"Watches"}></Link>
+            <Data catag={"Men's Watches"}></Data>
         </div>
     );
 }

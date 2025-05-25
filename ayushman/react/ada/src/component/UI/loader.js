@@ -1,6 +1,4 @@
 import ReactDom from "react-dom"
-// import { Spinner } from "react-bootstrap"
-// import "bootstrap/dist/css/bootstrap.min.css"
 import { GridLoader } from "react-spinners"
 
 

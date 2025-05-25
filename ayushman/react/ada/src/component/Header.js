@@ -57,7 +57,7 @@ const Header=({UserData ,userData})=>{
     return(
         <header>
             <div className="nav-brand">
-                <Link to="/">
+                <Link to="/Home">
                     <span><img src="LLMLogo.png" height={100} width={100}/></span>
                 </Link>
             </div>
