@@ -10,6 +10,9 @@ import axios from "axios";
 import { useState,useEffect } from "react";
 import SHeader from "./Items/SHeader";
 import Rec from "./Items/recData";
+import Headphone from "./Items/headphone";
+import Perfume from "./Items/perfume";
+import Shoes from "./Items/Shoes";
 
 
 const HomePage=()=>{
@@ -33,24 +36,33 @@ const HomePage=()=>{
             <Rec></Rec>
             <Link catagory={"Mobile Phone"}></Link>
             <Data catag={"Mobile Phones"}></Data>
-            <Banner></Banner>
-            <Link catagory={"Fitness & Gym"}></Link>
-            <Data catag={"Fitness Equipment"}></Data>
-            <SamsungAdv></SamsungAdv>
-            <Link catagory={"Kitchen"}></Link>
-            <Data catag={"Dining & Serveware"}></Data>
-            <Link catagory={"Skin Care"}></Link>
-            <Data catag={"Skin Care Products"}></Data>
-            <Link catagory={"Smell Nice"}></Link>
-            <Data catag={"Perfumes"}></Data>
             <Link catagory={"Laptops"}></Link>
             <Data catag={"Laptops"}></Data>
-            <Link catagory={"Headset"}></Link>
-            <Data catag={"Earphones & Headphones"}></Data>
+            <Shoes></Shoes>
+            <Link catagory={"Men's Shoes"}></Link>
+            <Data catag={"Casual Shoes for Men"}></Data>
+            <Link catagory={"Women's Shoes"}></Link>
+            <Data catag={"Sports Shoes for Women"}></Data>
+            <Banner></Banner>
             <Link catagory={"Women's Fashion"}></Link>
             <Data catag={"Women's Dresses"}></Data>
+            <Link catagory={"Men's T-shirt"}></Link>
+            <Data catag={"Men's T-Shirts"}></Data>            
+            <Perfume></Perfume>
+            <Link catagory={"Smell Nice"}></Link>
+            <Data catag={"Perfumes"}></Data>
+            <Link catagory={"Skin Care"}></Link>
+            <Data catag={"Skin Care Products"}></Data>
+            <Headphone></Headphone>
+            <Link catagory={"Headset"}></Link>
+            <Data catag={"Earphones & Headphones"}></Data>
             <Link catagory={"Watches"}></Link>
             <Data catag={"Men's Watches"}></Data>
+
+            <Link catagory={"Cycles"}></Link>
+            <Data catag={"Bicycles & Cycling Accessories"}></Data>
+            <Link catagory={"Swimming Gear"}></Link>
+            <Data catag={"Swimming Gear"}></Data>           
         </div>
     );
 }
