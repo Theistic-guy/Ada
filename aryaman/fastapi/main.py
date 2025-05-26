@@ -25,7 +25,9 @@ app = FastAPI()
 
 load_dotenv(override=True)
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-model = genai.GenerativeModel("gemini-1.5-pro-latest")
+model = genai.GenerativeModel("gemini-1.5-flash")
+for m in genai.list_models():
+    print(m.name, "=>", m.supported_generation_methods)
 embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
 new_db = FAISS.load_local(r"C:\Users\aryam\Documents\ML\Ada_E_Comm\faiss_index", embeddings,allow_dangerous_deserialization=True)
 
