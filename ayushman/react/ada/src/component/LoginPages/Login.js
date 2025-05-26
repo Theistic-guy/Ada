@@ -27,6 +27,7 @@ const Login=()=>{
 
           localStorage.setItem("userId", response.data.userId);
           localStorage.setItem("userData", JSON.stringify(response.data.userData));
+          localStorage.setItem("userName",response.data.userName);
 
           setFormData({
             UserName:"",

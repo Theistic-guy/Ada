@@ -13,7 +13,7 @@ const Rec=()=>{
         if (!userId) return;
 
         try {
-            const res=await axios.post("http://localhost:8000/start_recommendation", { userId });
+            const res=await axios.post("http://localhost:8000/start_recommendation", { user_id:userId });
 
             const response=res.data;
             let n=0;
