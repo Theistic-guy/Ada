@@ -29,7 +29,7 @@ const HomePage=()=>{
             <Header userData={user}></Header>
             <SHeader text={user}></SHeader>
             <Ad></Ad>
-            <Link catagory={"Selected Only For You"}></Link>
+            <Link catagory={"Only For You"}></Link>
             <Rec></Rec>
             <Link catagory={"Mobile Phone"}></Link>
             <Data catag={"Mobile Phones"}></Data>
@@ -47,8 +47,10 @@ const HomePage=()=>{
             <Data catag={"Laptops"}></Data>
             <Link catagory={"Headset"}></Link>
             <Data catag={"Earphones & Headphones"}></Data>
-            <Link catagory={"Gaming"}></Link>
-            <Data catag={"Gaming Consoles"}></Data>
+            <Link catagory={"Women's Fashion"}></Link>
+            <Data catag={"Women's Dresses"}></Data>
+            <Link catagory={"Watches"}></Link>
+            <Data catag={"Men's Watches"}></Data>
         </div>
     );
 }

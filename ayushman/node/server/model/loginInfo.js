@@ -1,5 +1,10 @@
 const mongoose=require("mongoose");
 
+const cartItemSchema = new mongoose.Schema({
+  ASIN: String,
+  quantity: Number
+});
+
 
 const loginSchema= new mongoose.Schema({
     FullName:{
@@ -37,7 +42,17 @@ const loginSchema= new mongoose.Schema({
     searches: {
         type: [String],
         default: []
-    }
+    },
+    cart: [cartItemSchema],
+
+    recommendation: {
+        type: [String],
+        default: [],
+    },
+    changes: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 const LoginInfo=mongoose.model("User",loginSchema);
