@@ -29,7 +29,7 @@ const HomePage=()=>{
             <Header userData={user}></Header>
             <SHeader text={user}></SHeader>
             <Ad></Ad>
-            <Link catagory={"Selected Only For You"}></Link>
+            <Link catagory={"Only For You"}></Link>
             <Rec></Rec>
             <Link catagory={"Mobile Phone"}></Link>
             <Data catag={"Mobile Phones"}></Data>

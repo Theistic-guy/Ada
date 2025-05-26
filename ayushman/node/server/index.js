@@ -92,6 +92,77 @@ app.get("/products", async (req, res) => {
     }
 });
 
+
+app.post("/update-cart", async (req, res) => {
+  const { userId, cart } = req.body;
+
+  try {
+    const user = await LoginInfo.findById(userId);
+    if (!user) return res.status(404).send("User not found");
+    let updatedCart = [...user.cart];
+
+    cart.forEach(newItem => {
+      const index = updatedCart.findIndex(item => item.ASIN === newItem.ASIN);
+
+      if (newItem.quantity <= 0) {
+        if (index !== -1) {
+          updatedCart.splice(index, 1);
+        }
+      } else {
+        if (index !== -1) {
+          updatedCart[index].quantity = newItem.quantity;
+        } else {
+          updatedCart.push(newItem);
+        }
+      }
+    });
+
+    user.cart = updatedCart;
+    user.changes = true;
+    await user.save();
+
+    res.status(200).json({ message: "Cart updated" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error updating cart");
+  }
+});
+
+app.get("/get-cart/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const user = await LoginInfo.findById(userId);
+    if (!user) return res.status(404).send("User not found");
+
+    const cartItems = user.cart || [];
+    if (cartItems.length === 0) {
+      return res.status(200).json([]); 
+    }
+
+    const ASINs = cartItems.map(item => item.ASIN);
+
+    const products = await Product.find({ ASIN: { $in: ASINs } }).lean();
+
+    const mergedCart = cartItems.map(cartItem => {
+      const product = products.find(p => p.ASIN === cartItem.ASIN);
+      if (!product) return null; 
+      return {
+        ...product,
+        quantity: cartItem.quantity,
+      };
+    }).filter(Boolean); 
+
+    res.status(200).json(mergedCart);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching cart");
+  }
+});
+
+
+
+
 app.post("/search", async (req, res) => {
     const { name, searchQuery } = req.body;
 
@@ -102,7 +173,8 @@ app.post("/search", async (req, res) => {
     try {
         const updatedUser = await LoginInfo.findOneAndUpdate(
             { UserName: name },
-            { $push: { searches: searchQuery } },
+            {$push: { searches: searchQuery },
+             $set: { changes: true } },
             { new: true }
         );
 

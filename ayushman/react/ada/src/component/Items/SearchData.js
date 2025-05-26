@@ -13,7 +13,6 @@ const SearchData=({identity})=>{
             try{
                 const dataItem= await axios.get("http://localhost:5000/products");
                 const data=dataItem.data;
-                // const catagory={catag};
                 const asinSet = new Set(identity);
                 const transferData = data.filter(product => asinSet.has(product.ASIN));
                 setItems(transferData)
@@ -37,7 +36,7 @@ const SearchData=({identity})=>{
                             {
                                 items.map(item =>{
                                     return(
-                                        <Card key={item.id} data={item}></Card>
+                                        <Card key={item.ASIN} data={item}></Card>
                                     )
                                 })
                             }

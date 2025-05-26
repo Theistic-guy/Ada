@@ -4,37 +4,43 @@ import Card from "./card"
 import Loader from "../UI/loader"
 
 const Rec=()=>{
-
-    const [items,setItems]=useState([]);
     const [loader,setLoader]=useState(true);
+    const [recommendations, setRecommendations] = useState([]);
 
-    useEffect(()=>{
-         async function fetchItem(){
-            try{
-                const dataItem= await axios.get("http://localhost:8000/recData");
-                const data=dataItem.data;
-                let n=0;
-                const transferData=data.filter((eventData)=>{
-                    if(n<5){
-                        n++;
-                        return eventData;
-                    }
-                    else{
-                        return;
-                    }
-                })
-                setItems(transferData)
-                setLoader(false)
-            }
-            catch(error){
-                setLoader(true)
-                alert('Error')
-            }
-            finally{
-                setLoader(false)
-            }
-         }
-         fetchItem()},[])
+    useEffect(() => {
+        const fetchRecommendations = async () => {
+        const userId = localStorage.getItem("userId");
+        if (!userId) return;
+
+        try {
+            await axios.post("http://localhost:8000/start_recommendation", { userId });
+
+            const res = await axios.get(`http://localhost:8000/recommendations/${userId}`);
+
+            const response=res.data;
+            let n=0;
+
+            const transferData=response.filter((eventData)=>{
+                if(n<5){
+                    n++;
+                    return eventData;
+                }
+                else{
+                    return;
+                }
+            })
+            setRecommendations(transferData);
+            setLoader(false);
+        }catch(err){
+            setLoader(true);
+            console.error("Error fetching recommendations:", err);
+        }
+        finally{
+            setLoader(false)
+        }
+        };
+        fetchRecommendations();
+    }, []);
 
          return(
             <>
@@ -42,16 +48,16 @@ const Rec=()=>{
                     <div className={"product-list"}>
                         <div className={"product-list--wrapper"}>
                             {
-                                items.map(item =>{
+                                recommendations.map(item =>{
                                     return(
-                                        <Card key={item.id} data={item}></Card>
+                                        <Card key={item.ASIN} data={item}></Card>
                                     )
                                 })
                             }
                         </div>
                     </div>
                 </>
-                {loader && <Loader></Loader>}
+            {loader && <Loader></Loader>}
             </>
         )
 }

@@ -1,30 +1,35 @@
 import Aos from "aos";
 import Modal from "../UI/modal";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState,useContext } from "react";
+import { CartContext } from "../Pages/CartContext";
+import { memo ,useMemo } from "react";
 
-const Card = ({ data }) => {
+const Card = memo(({ data }) => {
   useEffect(() => {
     Aos.init();
   }, []);
 
   const [modal, setModal] = useState(false);
-  const [counter, setCounter] = useState(0);
+  const { cartItems, addToCart, removeFromCart,decreaseQuantity } = useContext(CartContext);
 
-  const IncreaseCounter = () => {
-    setCounter(counter + 1);
-  };
-  const DecreaseCounter = () => {
-    if (counter === 0) {
-      return;
-    }
-    setCounter(counter - 1);
-  };
 
   const HandleModal = () => {
     setModal(!modal);
   };
 
-  // Render stars dynamically: filled and empty stars (up to 5)
+  const quantity = useMemo(() => {
+    const item = cartItems.find((item) => item.ASIN === data.ASIN);
+    return item ? item.quantity : 0;
+  }, [cartItems, data.ASIN]);
+
+  const  handleAdd = () => {
+    addToCart(data);
+  };
+
+  const handleRemove = () => {
+    decreaseQuantity(data.ASIN);
+  };
+
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
     const halfStar = rating - fullStars >= 0.5;
@@ -75,8 +80,8 @@ const Card = ({ data }) => {
           </div>
         </div>
 
-        {counter < 1 ? (
-          <button className={"cart-add"} onClick={IncreaseCounter}>
+        {quantity < 1 ? (
+          <button className={"cart-add"} onClick={handleAdd}>
             <span>Add to Cart</span>
             <img
               src="shopping-cart.png"
@@ -87,11 +92,11 @@ const Card = ({ data }) => {
           </button>
         ) : (
           <div className="cart-addon">
-            <button onClick={DecreaseCounter}>
+            <button onClick={handleRemove}>
               <span>-</span>
             </button>
-            <span>{counter}</span>
-            <button onClick={IncreaseCounter}>
+            <span>{quantity}</span>
+            <button onClick={handleAdd}>
               <span>+</span>
             </button>
           </div>
@@ -158,20 +163,20 @@ const Card = ({ data }) => {
             </div>
 
             <div className="AddModal">
-              {counter < 1 ? (
+              {quantity < 1 ? (
                 <button
                   className={"cart-add card-add__modal"}
-                  onClick={IncreaseCounter}
+                  onClick={handleAdd}
                 >
                   <span>Add to Cart</span>
                 </button>
               ) : (
                 <div className="cart-addon card-addon__modal" id="modal_card">
-                  <button onClick={DecreaseCounter}>
+                  <button onClick={handleRemove}>
                     <span>-</span>
                   </button>
-                  <span>{counter}</span>
-                  <button onClick={IncreaseCounter}>
+                  <span>{quantity}</span>
+                  <button onClick={handleAdd}>
                     <span>+</span>
                   </button>
                 </div>
@@ -183,6 +188,6 @@ const Card = ({ data }) => {
       </div>
     </Fragment>
   );
-};
+});
 
 export default Card;
