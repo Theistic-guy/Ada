@@ -159,21 +159,21 @@ const Header=({UserData ,userData})=>{
                         <img src="settings.png" height={30} width={30}/>
                         <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
                             <ul>
-                                <Link to={"/Profile"}>
+                                {/* <Link to={"/Profile"}>
                                     <DropdownItem img = {"user.png"} text = {"My Profile"}/>
                                 </Link>
                                 <Link>
                                     <DropdownItem img = {"edit.png"} text = {"Edit Profile"}/>  
-                                </Link>
+                                </Link> */}
                                 <Link>
                                     <DropdownItem img = {"envelope.png"} text = {"Inbox"}/>
                                 </Link>
-                                <Link>
+                                {/* <Link>
                                     <DropdownItem img = {"settings.png"} text = {"Settings"}/>
                                 </Link>
                                 <Link>
                                     <DropdownItem img = {"question.png"} text = {"Helps"}/>
-                                </Link>
+                                </Link> */}
                                 <Link to={"/"} onClick={handleLogOut}>
                                     <DropdownItem img = {"log-out.png"} text = {"Log Out"}/>
                                 </Link>
