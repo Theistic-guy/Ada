@@ -6,8 +6,11 @@ from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import json
+import pickle
 import re
 import os
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\aryam\Documents\ML\Ada_E_Comm\ada-gemini-eb2cbf0bb343.json"
+
 import pandas as pd
 from dotenv import load_dotenv
 import google.generativeai as genai
@@ -15,6 +18,9 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from google.generativeai import GenerativeModel
+import asyncio
+from pymongo import MongoClient
+from bson import ObjectId
 
 app = FastAPI()
 app.add_middleware(
@@ -31,6 +37,29 @@ embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
 new_db = FAISS.load_local(r"C:\Users\aryam\Documents\ML\Ada_E_Comm\faiss_index", embeddings,allow_dangerous_deserialization=True)
 prompts_paths = {'searching':r"C:\Users\aryam\Documents\ML\Ada_E_Comm\Ada\aryaman\fastapi\prompt_searching.txt",
                      'recommendations':r"C:\Users\aryam\Documents\ML\Ada_E_Comm\Ada\aryaman\fastapi\prompt_recommendations.txt"}
+
+with open(r"C:\Users\aryam\Documents\ML\Ada_E_Comm\Ada\aryaman\fastapi\static_recommendations.pkl","rb") as f:
+    static_recommendations = pickle.load(f)
+
+try:
+    client = MongoClient("mongodb://localhost:27017/")
+
+
+    db = client["products"]
+
+
+    products_collection = db["ada"]
+    users_collection = db['users']
+except Exception as e:
+    print("Err: in connecting to mongodb ",e)
+
+
+loggedin_user = None
+users_recommendations_dict = {}
+
+background_task = None
+stop_signal = False
+
 
 model = None
 requests_count = 0
@@ -78,6 +107,77 @@ def askLLM(prompt):
     except Exception as e:
         print("Err: in generating content ",e)
 
+def generate_recommendations(userid):
+    user = users_collection.find_one({"_id": ObjectId(userid)})
+    texts = []
+    texts.append("\n".join(user['interests']))
+    set_searches = set()
+    for x in user['searches']:
+        set_searches.add(x)
+
+    texts.append("\n".join(set_searches))
+    sub_cats = []
+    for obj in user['cart']:
+        sub_cats.append(products_collection.find({"ASIN":obj['ASIN']})[0]['Tag'])
+
+    texts.append("\n".join(sub_cats))
+    text_search = "\n".join(texts)
+    products_to_recommend = new_db.similarity_search(text_search,k=50)
+    productsx = []
+    for i,doc in enumerate(products_to_recommend):
+        productsx.append(doc.page_content)
+    joined_prods = "\n\n".join(productsx)
+    change_key_and_load_model()
+    response = askLLM(prompts['recommendations'].format(text_search=text_search,joined_prods=joined_prods))
+    asins_list = response.text.strip().splitlines()
+    recommended_docs = list(products_collection.find({"ASIN": {"$in": asins_list}}, {"_id": 0}))
+    return (asins_list,recommended_docs)
+
+
+
+# only runs if the current logged in user is same as the userid this function is configured to run for
+async def update_recommendations_daemon(userid_under_process):
+    global users_recommendations_dict
+    user_under_process = userid_under_process
+    user_now = users_collection.find_one({"_id": ObjectId(user_under_process)})
+    user_name = user_now['FullName']
+    print("✅ update_recommendations_daemon started. for ",user_name)
+    while not stop_signal and (user_under_process == loggedin_user):
+        print("🔁 Doing something... for ",user_name)
+        user = users_collection.find_one({"_id": ObjectId(user_under_process)})
+        is_modified = user['changes']
+        if is_modified :
+            output = generate_recommendations(user_under_process)
+            print("generated recommendations",output[1])
+            users_collection.update_one(
+                {"_id": ObjectId(user_under_process)},
+                {"$set": {"recommendation": output[1]}}
+            )
+            print('updated in the db')
+            users_recommendations_dict[user_under_process] = output[1]
+            users_collection.update_one(
+                {"_id": ObjectId(user_under_process)},
+                {"$set": {"changes": False}}
+            )
+        elif (not is_modified and user_under_process not in users_recommendations_dict):
+            if not user['recommendation']: 
+                users_recommendations_dict[user_under_process] = user['recommendation']
+            # load the users_reocmms_dictinaroy with the recommendations already stored
+            
+        else:
+            # do nothing i gues
+            pass
+        
+        await asyncio.sleep(10)  
+    print("🛑 update_recommendations_daemon stopped. for ",user_name)
+
+
+
+
+
+
+
+
 
 
 prompts = load_prompts()
@@ -88,13 +188,15 @@ class RecommendationRequest(BaseModel):
 
 @app.post("/search")
 async def read_input(query:SearchRequest):
-    global new_db
-    user_query = query.query
-    products = new_db.similarity_search(user_query,k=50)
-    response = askLLM(prompts['searching'].format(user_query=user_query,products=products))
-    raw_response = response.text.strip()
+    try:
+        global new_db
+        user_query = query.query
+        print("received query")
+        products = new_db.similarity_search(user_query,k=50)
+        response = askLLM(prompts['searching'].format(user_query=user_query,products=products))
+        raw_response = response.text.strip()
 
-    # region What this Regex Do?
+            # region What this Regex Do?
     # cleans output of LLM like :
     #   ```json
     #   {
@@ -109,8 +211,7 @@ async def read_input(query:SearchRequest):
     #       "age":22
     #   }
     # endregion
-    cleaned = re.sub(r"^```(?:json)?\n|```$", "", raw_response).strip()
-    try:
+        cleaned = re.sub(r"^```(?:json)?\n|```$", "", raw_response).strip()
         result = json.loads(cleaned)
         print("result as result",result)
         asin_list = result.get("asins", [])
@@ -119,47 +220,36 @@ async def read_input(query:SearchRequest):
         asin_list = []
         explanation = "Could not parse explanation."
         print("Error as ",e)
+    except Exception as e:
+        print("Error: in generating search results ")
+        asin_list = []
+        explanation = "Could not parse explanation."
+
+    
 
     return {"asins": asin_list[:10] ,"explanation":explanation}
      
 
 @app.post("/start_recommendation")
-async def process_recommendations(userid:RecommendationRequest):
-    print(userid)
-    print("hello there")
-    useridx = userid.user_id
-    prod1 =  {
-  "Main Category": "Baby Products",
-  "Tag": "Diapers",
-  "ASIN": "B075GHP2LX",
-  "Product Link": "https://www.amazon.in/dp/B075GHP2LX",
-  "Images": [
-    "https://m.media-amazon.com/images/I/61nwnjBv1pL._SY450_.jpg"
-  ],
-  "title": "Huggies Complete Comfort Wonder Pants | Pant Style Baby Diapers L Size, 128 Count | India's Fastest Absorbing Diaper, Patented Dry Xpert Channel, Ideal for 9 to 14 Kgs",
-  "productOverview": {
-    "Brand": "Huggies",
-    "Number of Items": "1",
-    "Colour": "White",
-    "Incontinence Protector Type": "Infant Diaper",
-    "Age Range (Description)": "Infant",
-    "Material": "Cotton",
-    "Material Type Free": "Chlorine Free",
-    "Reusability": "Disposable",
-    "Size": "Large",
-    "Net Quantity": "128 count"
-  },
-  "featureBullets": [
-    " New & Improved Huggies Complete Comfort Wonder Pants - India's Fastest Absorbing diaper with Patented Dry Xpert Channel; Large size / L Size baby diapers  ",
-    " Our L size diapers are designed for babies in 9 to 14 Kgs weight range; Find the best fit for your baby from our range of sizes (New born, S, M, L, XL, XXL, XXXL sizes)  ",
-    " Enjoy a peaceful night's sleep with Up to 12 Hours Overnight Absorption; Our best ever diaper pants ensure superior dry feel with Up to 4X Faster urine absorption  ",
-    " Stay worry free with Huggies equipped with double leak guard to help prevent Thigh Leakage ; Our diapers are made from breathable material which helps baby's skin to breathe  ",
-    " Our baby diaper pants feature India's 1st ever Bubble Bed technology that provides a soft inner side bubble layer to wrap your baby in ultimate softness  "
-  ],
-  "stars": 4.2,
-  "ratings": 203745,
-  "listPrice": 2799,
-  "salePrice": 1466,
-  "bookDescription": None
-}
-    return [prod1]
+async def process_recommendations(useridx:RecommendationRequest):
+    userid = useridx.user_id
+    global loggedin_user,background_task
+    recommendations_to_return = None
+    if userid in users_recommendations_dict:
+        recommendations_to_return = users_recommendations_dict[userid]
+    else:
+        usery = users_collection.find_one({"_id": ObjectId(userid)})
+        if usery['recommendation']:
+            recommendations_to_return = usery['recommendation']
+        else:
+            recommendations_to_return = static_recommendations
+
+    if loggedin_user == None or loggedin_user != userid:
+        loggedin_user = userid
+        background_task = asyncio.create_task(update_recommendations_daemon(userid))
+    else:
+        # i gues do nothing
+        pass
+    
+    return recommendations_to_return
+    
