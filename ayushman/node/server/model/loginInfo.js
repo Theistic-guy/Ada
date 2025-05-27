@@ -5,6 +5,72 @@ const cartItemSchema = new mongoose.Schema({
   quantity: Number
 });
 
+const RecSchema = new mongoose.Schema({
+    mainCategory: {
+        type: String,
+        required: true
+    },
+    tag: {
+        type: String,
+        required: true
+    },
+    ASIN: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    productLink: {
+        type: String,
+        required: true
+    },
+    images: {
+        type: [String],
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    productOverview: {
+        brand: String,
+        numberOfItems: String,
+        colour: String,
+        incontinenceProtectorType: String,
+        ageRange: String,
+        material: String,
+        materialTypeFree: String,
+        reusability: String,
+        size: String,
+        netQuantity: String
+    },
+    featureBullets: {
+        type: [String],
+        required: true
+    },
+    stars: {
+        type: Number,
+        required: true,
+        min: 0,
+        max: 5
+    },
+    ratings: {
+        type: Number,
+        required: true
+    },
+    listPrice: {
+        type: Number,
+        required: true
+    },
+    salePrice: {
+        type: Number,
+        required: true
+    },
+    bookDescription: {
+        type: String,
+        default: null
+    }
+}, { timestamps: true });
+
 
 const loginSchema= new mongoose.Schema({
     FullName:{

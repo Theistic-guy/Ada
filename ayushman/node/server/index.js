@@ -81,6 +81,8 @@ const ProductSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
+
+
 const Product = mongoose.model("Product", ProductSchema,"ada");
 
 app.get("/products", async (req, res) => {
@@ -111,8 +113,10 @@ app.post("/update-cart", async (req, res) => {
       } else {
         if (index !== -1) {
           updatedCart[index].quantity = newItem.quantity;
+          console.log("new item added")
         } else {
           updatedCart.push(newItem);
+          console.log("new item added")
         }
       }
     });

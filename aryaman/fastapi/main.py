@@ -151,9 +151,10 @@ async def update_recommendations_daemon(userid_under_process):
             print("generated recommendations",output[1])
             users_collection.update_one(
                 {"_id": ObjectId(user_under_process)},
-                {"$set": {"recommendation": output[1]}}
+                {"$set": {"recommendation": output[0]}}
             )
             print('updated in the db')
+
             users_recommendations_dict[user_under_process] = output[1]
             users_collection.update_one(
                 {"_id": ObjectId(user_under_process)},
@@ -161,14 +162,20 @@ async def update_recommendations_daemon(userid_under_process):
             )
         elif (not is_modified and user_under_process not in users_recommendations_dict):
             if not user['recommendation']: 
-                users_recommendations_dict[user_under_process] = user['recommendation']
+                asin_list = user['recommendation']
+                recomms = []
+                for x in asin_list:
+                    prod = products_collection.find_one({"ASIN":x})
+                    prod.pop(_id,None)
+                    recomms.append(prod)
+                users_recommendations_dict[user_under_process] = recomms
             # load the users_reocmms_dictinaroy with the recommendations already stored
             
         else:
             # do nothing i gues
             pass
         
-        await asyncio.sleep(10)  
+        await asyncio.sleep(5)  
     print("🛑 update_recommendations_daemon stopped. for ",user_name)
 
 
