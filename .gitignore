@@ -45,3 +45,4 @@ aryaman/csv/categories_and_products/AllIdentifiedProductsUK.csv
 __pycache__/
 *.pyc
 
+*.json
