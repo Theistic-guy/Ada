@@ -69,6 +69,6 @@ User queries are converted into embeddings and compared against product vectors 
 
 ## 🤝 Team & Acknowledgements
 
-Developed by **Aryaman , Ayushmaan * Devansh**
+Developed by **Aryaman , Ayushmaan & Devansh**
 
 
